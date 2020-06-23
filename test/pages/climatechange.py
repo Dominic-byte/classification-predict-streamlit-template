@@ -5,6 +5,4 @@ import pandas as pd
 import numpy as np
 import joblib,os
 
-from PIL import Image
-image = Image.open('climatechange.jpg')
-st.image(image)
+#want to see if this works
