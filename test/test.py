@@ -21,3 +21,5 @@ PAGES = {
 
 # Radio selector to switch over the different pages
 selection = st.sidebar.radio("Go to", list(PAGES.keys()))
+
+page = PAGES[selection]
