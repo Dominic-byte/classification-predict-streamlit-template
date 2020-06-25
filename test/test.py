@@ -222,6 +222,8 @@ def main():
     if selection == "Our Mission":
         st.image("https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/developing/test/resources/ourmission.png",
                   use_column_width= True)
+        st.markdown("hello")
+
 
 
     # Data Exploration
