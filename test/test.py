@@ -228,7 +228,11 @@ def main():
     if selection == "Data Exploration":
         st.image("https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/developing/test/resources/dataexploration.png",
                   use_column_width= True)
-
+	
+	st.info("EDA")
+        sns.factorplot('sentiment',data = raw, kind='count',size=6,aspect = 1.5, palette = 'PuBuGn_d') 
+        plt.suptitle("Plot 1: Climate Sentiment Bar Graph",y=1)
+        st.pyplot()
 
 
     # Models
