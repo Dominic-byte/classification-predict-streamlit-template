@@ -67,8 +67,8 @@ from gensim.models import Word2Vec
 
 # Load your raw data
 raw = pd.read_csv("resources/train.csv")
-my_dataset2 = 'resources/test.csv'
-data2 = pd.read_csv(my_dataset2)
+#my_dataset2 = 'resources/test.csv'
+#data2 = pd.read_csv(my_dataset2)
 
 # The main function where we will build the actual app
 def main():
@@ -252,17 +252,7 @@ def main():
 			return df1
 		tokenised_tweet = token(clean_train_df)
 
-		model_w2v = Word2Vec(            
-					tokenised_tweet,
-					size=200, # desired no. of features/independent variables 
-					window=5, # context window size
-					min_count=2,
-					sg = 1, # 1 for skip-gram model
-					hs = 0,
-					negative = 10, # for negative sampling
-					workers= 2, # no.of cores
-					seed = 34) 
-		model_w2v.train(tokenised_tweet,total_examples= len(clean_train_df['clean_tweet']), epochs=20)	
+		#Create word2vec
 
 		#create list of words with no repetitions
 		all_words =[]
@@ -280,8 +270,23 @@ def main():
 
 		#Predict similar words
 		if st.button('Predict Similar Words'):
-			predict_vec = model_w2v.wv.most_similar(positive=tweet_text_vec)
 			if tweet_text_vec in single_list_of_words:
+				@st.cache(persist=True)
+				def word2vec(text):
+					model_w2v = Word2Vec(            
+									tokenised_tweet,
+									size=200, # desired no. of features/independent variables 
+									window=5, # context window size
+									min_count=2,
+									sg = 1, # 1 for skip-gram model
+									hs = 0,
+									negative = 10, # for negative sampling
+									workers= 2, # no.of cores
+									seed = 34) 
+					model_w2v.train(tokenised_tweet,total_examples= len(clean_train_df['clean_tweet']), epochs=20)	
+					vec = model_w2v.wv.most_similar(positive=text)
+					return vec
+				predict_vec = word2vec(tweet_text_vec)
 				for tuple in predict_vec:
 					st.success("{}".format(tuple))
 			else:
