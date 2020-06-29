@@ -39,7 +39,8 @@ from nltk import PorterStemmer
 from nltk.stem import WordNetLemmatizer
 from nltk.probability import FreqDist
 import spacy
-sp = spacy.load('en_core_web_sm')
+import en_core_web_sm
+sp = en_core_web_sm.load()
 
 ### Loading the data
 # Vectorizer
@@ -1251,7 +1252,7 @@ def main():
             hash4 = hashtag4(HT_anti)
             st.markdown("<h1 style='text-align: center; color: black;'> Hashtag for Negative(-1) Sentiment</h1>", unsafe_allow_html=True)
             sns.barplot(data=hash4, x= "Hashtag", y = "Count")
-            st.pyplot()	
+            st.pyplot()
 
 
     # Models
@@ -1480,6 +1481,8 @@ def main():
         st.markdown(""" Risk taker: "Rather an opps than a what if"
 
                     **Background:**
+
+
                             - Bcom Honours in Economics
                     """)
 
@@ -1490,6 +1493,7 @@ def main():
                     "Recommended by 9 out of 10 people who recommend things"
 
                     **Background:**
+
                             - A marketing enthusist with brand management background
                     """)
 
@@ -1501,6 +1505,7 @@ def main():
                     "I am so cool even ice cubes are so jealous of me"
 
                     **Background:**
+
                             - National Diploma in IT
                             - Junior analyst background
                     """)
@@ -1510,7 +1515,7 @@ def main():
                   use_column_width= True)
         st.markdown("""
                     “I am ambitious and driven. I thrive on challenge and constantly set goals for myself, so I have something to strive toward. I’m not comfortable with settling,
-                    and I’m always looking for an opportunity to do better and achieve greatness.
+                    and I’m always looking for an opportunity to do better and achieve greatness."
 
                     **Background:**
 
@@ -1525,6 +1530,7 @@ def main():
         st.markdown(""" Risk taker: "Rather an opps than a what if"
 
                     **Background:**
+
                             - Studied accounting through UNISA
                             - Co-founded Bokamos Agro-processin: Produces animal feed
                     """)
