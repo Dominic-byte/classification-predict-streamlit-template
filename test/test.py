@@ -60,7 +60,7 @@ def main():
 
 	# Creating multiple pages
     st.sidebar.title("Menu")
-    options = ["Homepage", "Overview of Climate Change", "Our Mission", "Machine Learning", "Data Exploration", "Models", "About Us"]
+    options = ["Homepage", "Overview of Climate Change", "Our Mission", "Machine Learning", "Data Exploration", "Models", "Our Products and Services", "About Us"]
     selection = st.sidebar.radio("Please select a page", options)
 
     ## Building our pages
@@ -1344,6 +1344,11 @@ def main():
             st.write("Blabla...")
 
         toc.generate()
+
+    # Our products and services pages
+    if selection == "Our Products and Services":
+        st.image("https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/products_services.png",
+                  use_column_width= True)
 
 
     # About the Authors
