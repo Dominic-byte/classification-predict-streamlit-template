@@ -127,13 +127,15 @@ def main():
                   use_column_width= True)
         st.markdown("""
                     **Weather** describes the conditions happening outside right now in a specific area.
-                    _For example,_ if you see that it’s raining outside right now, that’s a way to describe
-                    today’s weather. Rain, snow, wind, hurricanes, tornadoes — these are all weather events.
+
+                    _For example,_ if you see that it's raining outside right now, that's a way to describe
+                    today's weather. Rain, snow, wind, hurricanes, tornadoes — these are all weather events.
 
                     **Climate**, on the other hand, is more than just one or two rainy days. Climate describes the weather conditions that are expected in a region at a particular
-                    time of year. Is it usually rainy or usually dry? Is it typically hot or typically cold? A region’s climate is determined by observing its weather over a
+                    time of year. Is it usually rainy or usually dry? Is it typically hot or typically cold? A region's climate is determined by observing its weather over a
                     period of many years—generally 30 years or more.
-                    _For example,_ one or two weeks of rainy weather wouldn’t change the fact that the Karoo typically has a dry, desert climate. Even though it’s rainy right now,
+                    _For example,_ one or two weeks of rainy weather wouldn't change the fact that the Karoo typically has a dry, desert climate. Even though it's rainy right now,
+
                     we still expect the Karoo to be dry because that's what is usually the case.
                     """)
 
@@ -178,7 +180,9 @@ def main():
                     """)
 
         st.markdown("""
-                    **_The terms “climate change” and “global warming” are used interchangeably but they mean separate things._**
+
+                    **_The terms "climate change" and "global warming" are used interchangeably but they mean separate things._**
+
                     """)
         st.image("https://snowbrains.com/wp-content/uploads/2019/08/climate_change_buzzwords.jpg?w=640",
                   use_column_width= True)
@@ -224,7 +228,8 @@ def main():
 
                     **Melting Ice**
 
-                    Projections suggest climate change impacts within the next 100 years, if not sooner, the world’s glaciers will have disappeared, as will the Polar ice caps, and
+                    Projections suggest climate change impacts within the next 100 years, if not sooner, the world's glaciers will have disappeared, as will the Polar ice caps, and
+
                     the huge Antarctic ice shelf, Greenland may be green again, and snow will have become a rare phenomenon.
 
                     ![Polar Ice Coverage](https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_300/https://warmheartworldwide.org/wp-content/uploads/2018/07/CS_arctic-sea-ice-loss_V2-300x212.png)
@@ -244,12 +249,14 @@ def main():
                     **Heatwaves and droughts**
 
                     Despite downpours in some places, droughts and prolonged heatwaves will become common. Rising temperatures are hardly surprising, although they do not mean that
-                    some parts of the world will not “enjoy” record cold temperatures and terrible winter storms.
+
+                    some parts of the world will not "enjoy" record cold temperatures and terrible winter storms.
+
                     (Heating disturbs the entire global weather system and can shift cold upper air currents as well as hot dry ones.)
                     Increasingly, however, hot, dry places will get hotter and drier, and places that were once temperate and had regular rainfall will become much hotter and much
                     drier.
 
-                    Heatwaves and droughts will increase pressure on already fragile power, healthcare, water and sewage systems, as well as reducing countries’ ability to feed
+                    Heatwaves and droughts will increase pressure on already fragile power, healthcare, water and sewage systems, as well as reducing countries' ability to feed
                     themselves or export agricultural products. Heat will also become an increasingly important killer, especially of the very young and the old.
 
                     ![Header Image](https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_465,h_261/https://warmheartworldwide.org/wp-content/uploads/2018/07/EPA-project-droughts-to-end-of-century-1.gif)
@@ -260,7 +267,8 @@ def main():
                     Already rising temperatures at the equator have pushed such staple crops as rice north into once cooler areas, many fish species have migrated long distances to
                     stay in waters that are the proper temperature for them.
 
-                    In once colder waters, this may increase fishermen’s catches; in warmer waters, it may eliminate fishing; in many places, it will require fishermen to go further
+                    In once colder waters, this may increase fishermen's catches; in warmer waters, it may eliminate fishing; in many places, it will require fishermen to go further
+
                     to reach fishing grounds.
 
                     Farmers in temperate zones are finding drier conditions difficult for crops such as corn and wheat, and once prime growing zones are now threatened.
@@ -312,19 +320,19 @@ def main():
         st.markdown("""
                     Climate change affects the entire globe; its impacts are more pronounced in the developing world than in the developed world.
 
-                    In fact, ironically, although most of the human activity that produces climate change occurs in the developed world, many of climate changes’ effects will
+                    In fact, ironically, although most of the human activity that produces climate change occurs in the developed world, many of climate changes' effects will
+
                     actually be beneficial in the developed world. In the short- and middle-term, for example, climate change will likely increase fish and agricultural yields
                     where populations are small and shrinking and productivity is highest.
-                    Climate change’s impacts in the developing world will be almost exclusively negative, often terribly so.
+                    Climate change's impacts in the developing world will be almost exclusively negative, often terribly so.
 
                     > As K. Smith tartly observed in 2008:
 
-                      “The rich will find their world to be more expensive, inconvenient, uncomfortable, disrupted and colourless; in general, more unpleasant and unpredictable,
-                      perhaps greatly so. The poor will die.”
+                      "The rich will find their world to be more expensive, inconvenient, uncomfortable, disrupted and colourless; in general, more unpleasant and unpredictable,
+                      perhaps greatly so. The poor will die."
 
                     ![Header Image](https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_400/https://warmheartworldwide.org/wp-content/uploads/2018/07/Vulnerable_Countries_400.jpg)]
                     ![Header Image](https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_450/https://warmheartworldwide.org/wp-content/uploads/2018/07/Potential-vulnerability.png)
-
                     """)
 
         toc.header("What can we do in the developing world to slow down climate change?")
@@ -415,7 +423,8 @@ def main():
 
         toc1.header("Synopsis")
         st.markdown("""
-                    Many companies are built around lessening one’s environmental impact or carbon footprint. They offer products and services that are environmentally friendly
+                    Many companies are built around lessening one's environmental impact or carbon footprint. They offer products and services that are environmentally friendly
+
                     and sustainable, in line with their values and ideals. They would like to determine how people perceive climate change and whether or not they believe it is a
                     real threat. This would add to their market research efforts in gauging how their product/service may be received.
 
@@ -498,14 +507,18 @@ def main():
         toc2.subheader("Unsupervised Machine Learning techniques")
         st.markdown("""
                     Unsupervised machine learning algorithms are used when the information used to train is neither classified nor labeled. Unsupervised learning studies how systems
-                    can infer a function to describe a hidden structure from unlabeled data. The system doesn’t figure out the right output, but it explores the data and can draw
+
+                    can infer a function to describe a hidden structure from unlabeled data. The system doesn't figure out the right output, but it explores the data and can draw
+
                     inferences from datasets to describe hidden structures from unlabeled data.
                     """)
 
 
         toc2.title("Natural Language Processing?")
         st.markdown("""
-                    Natural Language Processing (NLP) is the technology used to aid computers to understand the human’s natural language. It’s not an easy task teaching
+
+                    Natural Language Processing (NLP) is the technology used to aid computers to understand the human's natural language. It's not an easy task teaching
+
                     machines to understand how we communicate.
                     """)
 
@@ -521,7 +534,9 @@ def main():
                                 1. A human talks to the machine
                                 2. The machine captures the audio
                                 3. Audio to text conversion takes place
-                                4. Processing of the text’s data
+
+                                4. Processing of the text's data
+
                                 5. Data to audio conversion takes place
                                 6. The machine responds to the human by playing the audio file
                     """)
@@ -534,13 +549,17 @@ def main():
                             - Word Processors such as Microsoft Word and Grammarly that employ NLP to check
                               grammatical accuracy of texts.
                             - Interactive Voice Response (IVR) applications used in call centers to respond to
-                              certain users’ requests.
+
+                              certain users' requests.
+
                             - Personal assistant applications such as OK Google, Siri, Cortana, and Alexa.
                     """)
 
         toc2.header("Why is NLP difficult?")
         st.markdown("""
-                    Natural Language processing is considered a difficult problem in computer science. It’s the nature of the human language that makes NLP difficult.
+
+                    Natural Language processing is considered a difficult problem in computer science. It's the nature of the human language that makes NLP difficult.
+
                     The rules that dictate the passing of information using natural languages are not easy for computers to understand.
                     Some of these rules can be high-leveled and abstract:
 
@@ -551,7 +570,8 @@ def main():
                     On the other hand, some of these rules can be low-levelled:
                     > _for example:_
 
-                                    Using the character “s” to signify the plurality of items.
+                                    Using the character "s" to signify the plurality of items.
+
 
                     Comprehensively understanding the human language requires understanding both the words and how the concepts are connected to deliver the intended message.
                     While humans can easily master a language, the ambiguity and imprecise characteristics of the natural languages are what make NLP difficult for machines to implement.
@@ -572,12 +592,15 @@ def main():
 
                             Here is the biblical sentence that required translation:
 
-                            “The spirit is willing, but the flesh is weak.”
+                            "The spirit is willing, but the flesh is weak."
+
 
                             Here is the result when the sentence was translated to Russian and back to
                             English:
 
-                            “The vodka is good, but the meat is rotten.”
+
+                            "The vodka is good, but the meat is rotten."
+
                     """)
 
         toc2.header("What are the techniques used in NLP?")
@@ -658,7 +681,6 @@ def main():
     if selection == "Data Exploration":
         st.image("https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/developing/test/resources/dataexploration.png",
                   use_column_width= True)
-<<<<<<< HEAD
 
         # EDA
         my_dataset = "https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/resources/train.csv"
@@ -992,19 +1014,6 @@ def main():
             st.markdown("<h1 style='text-align: center; color: black;'> Hashtag for Negative(-1) Sentiment</h1>", unsafe_allow_html=True)
             sns.barplot(data=hash4, x= "Hashtag", y = "Count")
             st.pyplot()
-
-
-
-
-
-
-=======
-	
-	st.info("EDA")
-        sns.factorplot('sentiment',data = raw, kind='count',size=6,aspect = 1.5, palette = 'PuBuGn_d') 
-        plt.suptitle("Plot 1: Climate Sentiment Bar Graph",y=1)
-        st.pyplot()
->>>>>>> master
 
 
     # Models
