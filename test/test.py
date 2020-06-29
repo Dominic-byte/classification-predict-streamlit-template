@@ -66,7 +66,8 @@ def main():
     ## Building our pages
     # Homepage page
     if selection == "Homepage":
-        st.image("https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/developing/test/resources/homepage.jpg")
+        st.image("https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/homepage.jpg",
+                  use_column_width= True)
 
         # Creating about us box on the side sidebar
         st.sidebar.title("About")
@@ -81,10 +82,11 @@ def main():
     if selection == "Overview of Climate Change":
 
         # Added a main heading to the page
-        st.image("https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/developing/test/resources/overview2%20(2).png",
+        st.image("https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/overview2%20(2).png",
                   use_column_width= True)
 
         st.sidebar.title("Table of contents")
+        st.sidebar.info("The table of contents is interactive")
         class Toc:
 
             def __init__(self):
@@ -118,35 +120,35 @@ def main():
 
         toc.placeholder()
 
-        toc.title("Climate Change")
-
+        # Video briefly explaining climate change
         st.video("https://www.youtube.com/watch?v=QG9ZcsL4lNc")
-        st.markdown("")
-        toc.header("Weather vs. Climate")
+
+        # Brief overview of climate change
+        toc.title("Climate Change")
+        toc.header("❄ Weather vs. Climate ❄")
         st.image("https://climatekids.nasa.gov/review/climate-change-meaning/weather-vs-climate.png",
                   use_column_width= True)
         st.markdown("""
                     **Weather** describes the conditions happening outside right now in a specific area.
-<<<<<<< HEAD
-                    _For example,_ if you see that it’s raining outside right now, that’s a way to describe
-                    today’s weather. Rain, snow, wind, hurricanes, tornadoes — these are all weather events.
 
-                    **Climate**, on the other hand, is more than just one or two rainy days. Climate describes the weather conditions that are expected in a region at a particular
-                    time of year. Is it usually rainy or usually dry? Is it typically hot or typically cold? A region’s climate is determined by observing its weather over a
-                    period of many years—generally 30 years or more.
-                    _For example,_ one or two weeks of rainy weather wouldn’t change the fact that the Karoo typically has a dry, desert climate. Even though it’s rainy right now,
-=======
+                    > _For example:_
 
-                    _For example,_ if you see that it's raining outside right now, that's a way to describe
-                    today's weather. Rain, snow, wind, hurricanes, tornadoes — these are all weather events.
+                            If you see that it's raining outside right now, that's a way to describe today's
+                            weather.
+
+                            Rain, snow, wind, hurricanes, tornadoes — these are all weather events.
 
                     **Climate**, on the other hand, is more than just one or two rainy days. Climate describes the weather conditions that are expected in a region at a particular
                     time of year. Is it usually rainy or usually dry? Is it typically hot or typically cold? A region's climate is determined by observing its weather over a
                     period of many years—generally 30 years or more.
-                    _For example,_ one or two weeks of rainy weather wouldn't change the fact that the Karoo typically has a dry, desert climate. Even though it's rainy right now,
 
->>>>>>> aea434ffe172421a3662c20abcacb80f6ee4710f
-                    we still expect the Karoo to be dry because that's what is usually the case.
+                    > _For example:_
+
+                            One or two weeks of rainy weather wouldn't change the fact that the Karoo
+                            typically has a dry, desert climate.
+
+                            Even though it's rainy right now,
+                            we still expect the Karoo to be dry because that's what is usually the case.
                     """)
 
         toc.header("💡 What is climate change? 💡")
@@ -166,6 +168,7 @@ def main():
         st.markdown("""
                     This is linked to the greenhouse effect, which describes how the Earth's atmosphere traps some of the Sun's energy.
                     Solar energy radiating back to space from the Earth's surface is absorbed by greenhouse gases and re-emitted in all directions.
+
                     This heats both the lower atmosphere and the surface of the planet. Without this effect, the Earth would be about 30C colder and hostile to life.
                     """)
 
@@ -190,13 +193,9 @@ def main():
                     """)
 
         st.markdown("""
-<<<<<<< HEAD
-                    **_The terms “climate change” and “global warming” are used interchangeably but they mean separate things._**
-=======
 
                     **_The terms "climate change" and "global warming" are used interchangeably but they mean separate things._**
 
->>>>>>> aea434ffe172421a3662c20abcacb80f6ee4710f
                     """)
         st.image("https://snowbrains.com/wp-content/uploads/2019/08/climate_change_buzzwords.jpg?w=640",
                   use_column_width= True)
@@ -218,12 +217,16 @@ def main():
         toc.subheader("How does global warming drive climate change?")
         st.markdown("""
                     All systems in the global climate system are connected, adding heat energy causes the global climate as a whole to change. Two thirds of the world is covered
-                    with ocean which heats up. When the ocean heats up, more water evaporates into clouds. Where storms like hurricanes and typhoons are forming, the result is
+                    with ocean which heats up.
+
+                    When the ocean heats up, more water evaporates into clouds. Where storms like hurricanes and typhoons are forming, the result is
                     more energy-intensive storms. A warmer atmosphere makes glaciers and mountain snow packs, the Polar ice caps, and the great ice shield jutting off of Antarctica
                     melt which cause sea levels to rise.
 
                     Changes in temperature change the great patterns of wind that bring the monsoons in Asia and rain and snow around the world, making drought and unpredictable
-                    weather more common. This is why scientists have stopped focusing just on global warming and now focus on the larger topic of climate change.
+                    weather more common.
+
+                    This is why scientists have stopped focusing just on global warming and now focus on the larger topic of climate change.
                     """)
         st.image("https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_510,h_411/https://warmheartworldwide.org/wp-content/uploads/2018/07/Climate-change-connections.gif",
                   use_column_width = True)
@@ -237,21 +240,21 @@ def main():
 
                     Sea rise is expected entirely to submerge a number of small, island countries, and to flood coastal spawning grounds for many staple marine resources, as well
                     as low-lying capital cities, commercial agriculture, transportation and power generation infrastructure and tourism investments.
+                    """)
 
-                    ![Header Image](https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_400/https://warmheartworldwide.org/wp-content/uploads/2018/07/Rising-sea-levels.png)
+        st.image("https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_400/https://warmheartworldwide.org/wp-content/uploads/2018/07/Rising-sea-levels.png",
+                  use_column_width = True)
 
+        st.markdown("""
                     **Melting Ice**
 
-<<<<<<< HEAD
-                    Projections suggest climate change impacts within the next 100 years, if not sooner, the world’s glaciers will have disappeared, as will the Polar ice caps, and
-=======
                     Projections suggest climate change impacts within the next 100 years, if not sooner, the world's glaciers will have disappeared, as will the Polar ice caps, and
-
->>>>>>> aea434ffe172421a3662c20abcacb80f6ee4710f
                     the huge Antarctic ice shelf, Greenland may be green again, and snow will have become a rare phenomenon.
+                    """)
+        st.image("https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_300/https://warmheartworldwide.org/wp-content/uploads/2018/07/CS_arctic-sea-ice-loss_V2-300x212.png",
+                 use_column_width = True)
 
-                    ![Polar Ice Coverage](https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_300/https://warmheartworldwide.org/wp-content/uploads/2018/07/CS_arctic-sea-ice-loss_V2-300x212.png)
-
+        st.markdown("""
                     **Torrential Downpours and more powerful storms**
 
                     While the specific conditions that produce rainfall will not change, climate change impacts the amount of water in the atmosphere and will increase producing
@@ -260,41 +263,36 @@ def main():
 
                     Torrential downpours and devastating storms will increase large-scale damage to fields, homes, businesses, transportation and power systems and industry in
                     countries without the financial or human capital resources to respond.
+                    """)
+        st.image("https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_400/https://warmheartworldwide.org/wp-content/uploads/2018/07/Effects-of-climate-change.jpg",
+                 use_column_width = True)
+        st.image("https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_400/https://warmheartworldwide.org/wp-content/uploads/2018/07/Flooding-1.jpg",
+                 use_column_width = True)
 
-                    ![Header Image](https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_400/https://warmheartworldwide.org/wp-content/uploads/2018/07/Effects-of-climate-change.jpg)
-                    ![Header Image](https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_400/https://warmheartworldwide.org/wp-content/uploads/2018/07/Flooding-1.jpg)
-
+        st.markdown("""
                     **Heatwaves and droughts**
 
                     Despite downpours in some places, droughts and prolonged heatwaves will become common. Rising temperatures are hardly surprising, although they do not mean that
-<<<<<<< HEAD
-                    some parts of the world will not “enjoy” record cold temperatures and terrible winter storms.
-=======
-
                     some parts of the world will not "enjoy" record cold temperatures and terrible winter storms.
-
->>>>>>> aea434ffe172421a3662c20abcacb80f6ee4710f
                     (Heating disturbs the entire global weather system and can shift cold upper air currents as well as hot dry ones.)
+
                     Increasingly, however, hot, dry places will get hotter and drier, and places that were once temperate and had regular rainfall will become much hotter and much
                     drier.
 
                     Heatwaves and droughts will increase pressure on already fragile power, healthcare, water and sewage systems, as well as reducing countries' ability to feed
                     themselves or export agricultural products. Heat will also become an increasingly important killer, especially of the very young and the old.
+                    """)
+        st.image("https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_465,h_261/https://warmheartworldwide.org/wp-content/uploads/2018/07/EPA-project-droughts-to-end-of-century-1.gif",
+                  use_column_width = True)
 
-                    ![Header Image](https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_465,h_261/https://warmheartworldwide.org/wp-content/uploads/2018/07/EPA-project-droughts-to-end-of-century-1.gif)
-
+        st.markdown("""
                     **Changing eco-systems**
 
                     As the world warms, entire ecosystems will move.
                     Already rising temperatures at the equator have pushed such staple crops as rice north into once cooler areas, many fish species have migrated long distances to
                     stay in waters that are the proper temperature for them.
 
-<<<<<<< HEAD
-                    In once colder waters, this may increase fishermen’s catches; in warmer waters, it may eliminate fishing; in many places, it will require fishermen to go further
-=======
                     In once colder waters, this may increase fishermen's catches; in warmer waters, it may eliminate fishing; in many places, it will require fishermen to go further
-
->>>>>>> aea434ffe172421a3662c20abcacb80f6ee4710f
                     to reach fishing grounds.
 
                     Farmers in temperate zones are finding drier conditions difficult for crops such as corn and wheat, and once prime growing zones are now threatened.
@@ -302,7 +300,9 @@ def main():
 
                     Changing ecosystems seem to result almost exclusively in the loss of important food species, for example of fish and staple crops, and the increase of malign
                     species such as disease vectors.
+                    """)
 
+        st.markdown("""
                     **Reduced food security**
 
                     One of the most striking impacts of rising temperatures is felt in global agriculture, although these impacts are felt very differently in the largely temperate
@@ -313,13 +313,19 @@ def main():
                     staple food crop production by then simply to maintain current levels of food consumption.
 
                     Food security, already shaky, is crumbling under rising temperatures and related climate changes. Major staple crops are declining in productivity, while unlike in
-                    the developed countries, there are no new, more tropical staples to move in to take their places. Rising population combined with declining productivity,
-                    increasing incidence of drought and storms is increasingly leaving developing countries vulnerable of food shortfalls.
+                    the developed countries, there are no new, more tropical staples to move in to take their places.
 
-                    ![Header Image](https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_300,h_225/https://warmheartworldwide.org/wp-content/uploads/2018/07/climate-change-and-food-security-in-southeast-asia-issues-and-policy-options-13-728.jpg)
-                    ![Header Image](https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_300,h_294/https://warmheartworldwide.org/wp-content/uploads/2018/07/climate-impacts-production1.png)
-                    ![Header Image](https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_300,h_225/https://warmheartworldwide.org/wp-content/uploads/2018/07/temperature-and-food-production-lost.jpg)
+                    Rising population combined with declining productivity, increasing incidence of drought and storms is increasingly leaving developing countries vulnerable of food
+                    shortfalls.
+                    """)
+        st.image("https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_300,h_225/https://warmheartworldwide.org/wp-content/uploads/2018/07/climate-change-and-food-security-in-southeast-asia-issues-and-policy-options-13-728.jpg",
+                  use_column_width = True)
+        st.image("https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_300,h_294/https://warmheartworldwide.org/wp-content/uploads/2018/07/climate-impacts-production1.png",
+                 use_column_width = True)
+        st.image("https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_300,h_225/https://warmheartworldwide.org/wp-content/uploads/2018/07/temperature-and-food-production-lost.jpg",
+                 use_column_width = True)
 
+        st.markdown("""
                     **Pests and diseases**
 
                     Rising temperatures favor agricultural pests, diseases and disease vectors.
@@ -336,55 +342,46 @@ def main():
 
                     Ongoing ocean acidification threatens more and more small shell fish, which form the broad base of the ocean food chain. Ultimately, this will threaten the
                     entire ocean population and so the critical protein source for a third of the people on earth and a major industry.
-
-                    ![Header Image](https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_400/https://warmheartworldwide.org/wp-content/uploads/2018/07/malaria-and-cl-ch.jpg)
-                    ![Header Image](https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_400/https://warmheartworldwide.org/wp-content/uploads/2018/07/zika_graphic-400x200.jpg)
-                    ![Header Image](https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_392/https://warmheartworldwide.org/wp-content/uploads/2018/07/climate_change_health_impacts600w.jpg)
                     """)
+        st.image("https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_400/https://warmheartworldwide.org/wp-content/uploads/2018/07/malaria-and-cl-ch.jpg",
+                 use_column_width = True)
+        st.image("https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_400/https://warmheartworldwide.org/wp-content/uploads/2018/07/zika_graphic-400x200.jpg",
+                 use_column_width = True)
+        st.image("https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_392/https://warmheartworldwide.org/wp-content/uploads/2018/07/climate_change_health_impacts600w.jpg",
+                 use_column_width = True)
 
-        toc.title("🌍 Impact on the developing world 🌍")
+
+        toc.title("Impact on the developing world")
         st.markdown("""
                     Climate change affects the entire globe; its impacts are more pronounced in the developing world than in the developed world.
 
-<<<<<<< HEAD
-                    In fact, ironically, although most of the human activity that produces climate change occurs in the developed world, many of climate changes’ effects will
-=======
                     In fact, ironically, although most of the human activity that produces climate change occurs in the developed world, many of climate changes' effects will
-
->>>>>>> aea434ffe172421a3662c20abcacb80f6ee4710f
                     actually be beneficial in the developed world. In the short- and middle-term, for example, climate change will likely increase fish and agricultural yields
                     where populations are small and shrinking and productivity is highest.
+
                     Climate change's impacts in the developing world will be almost exclusively negative, often terribly so.
 
                     > As K. Smith tartly observed in 2008:
 
-                      "The rich will find their world to be more expensive, inconvenient, uncomfortable, disrupted and colourless; in general, more unpleasant and unpredictable,
-                      perhaps greatly so. The poor will die."
+                            "The rich will find their world to be more expensive, inconvenient, uncomfortable,
+                            disrupted and colourless; in general, more unpleasant and unpredictable, perhaps
+                            greatly so. The poor will die."
 
-                    ![Header Image](https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_400/https://warmheartworldwide.org/wp-content/uploads/2018/07/Vulnerable_Countries_400.jpg)]
-                    ![Header Image](https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_450/https://warmheartworldwide.org/wp-content/uploads/2018/07/Potential-vulnerability.png)
-<<<<<<< HEAD
-
-                    > As K. Smith tartly observed in 2008:
-
-                      “The rich will find their world to be more expensive, inconvenient, uncomfortable, disrupted and colourless; in general, more unpleasant and unpredictable,
-                      perhaps greatly so. The poor will die.”
-
-                    ![Header Image](https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_400/https://warmheartworldwide.org/wp-content/uploads/2018/07/Vulnerable_Countries_400.jpg)]
-                    ![Header Image](https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_450/https://warmheartworldwide.org/wp-content/uploads/2018/07/Potential-vulnerability.png)
-
-=======
->>>>>>> aea434ffe172421a3662c20abcacb80f6ee4710f
                     """)
+        st.image("https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_400/https://warmheartworldwide.org/wp-content/uploads/2018/07/Vulnerable_Countries_400.jpg",
+                 use_column_width = True)
+        st.image("https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_450/https://warmheartworldwide.org/wp-content/uploads/2018/07/Potential-vulnerability.png",
+                  use_column_width = True)
 
-        toc.header("What can we do in the developing world to slow down climate change?")
+
+        toc.header("🌍 How can they slow down climate change? 🌍")
         st.markdown("""
                     Countries in the developing world can make two major contributions to slowing climate change:
                     They can pursue smart development, avoiding the worst mistakes of the developed world; and they can reduce – even reverse – their one major contribution to
                     climate change: unsustainable agriculture practices.
-
-                    **What can the developing world do to avoid the mistakes of the developed world?**
-
+                    """)
+        st.subheader("What can the developing world do to avoid the mistakes of the developed world?")
+        st.markdown("""
                     Look first at the primary sources of the greenhouse gasses that cause global warming: Power generation (25%); industry (21%); transportation (14%); and
                     buildings (6%).
 
@@ -417,10 +414,11 @@ def main():
 
     # Our Mission page
     if selection == "Our Mission":
-        st.image("https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/developing/test/resources/ourmission.png",
+        st.image("https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/ourmission.png",
                   use_column_width= True)
 
         st.sidebar.title("Table of contents")
+        st.sidebar.info("The table of contents is interactive")
         class Toc1:
             def __init__(self):
                 self._items = []
@@ -453,31 +451,82 @@ def main():
 
         toc1.placeholder()
 
-        toc1.title("The Three Musketeers")
+        st.image("https://media.coveringmedia.com/media/images/movies/2011/10/16/three_title.jpg",
+                 use_column_width= True)
+
+        toc1.title("⚔️ The Three Musketeers ⚔️")
         st.markdown("""
                     Our goal is to combine Machine Learning techniques and user-frinedly interfaces and technology to educate  people and businesses around climated
                     change.
 
-                    We use Machine Learning models to classify a persons comments about climate change whether they are for or against climate change. By bridging
-                    the gap between Machine Learning and human understanding and able to deliver actionable insights and information that can allow or inform
+                    We use Machine Learning models to classify a persons comments about climate change whether they are for or against climate change.
+
+                    By bridging the gap between Machine Learning and human understanding and able to deliver actionable insights and information that can allow or inform
                     future strategies around climate change.
                     """)
 
         toc1.header("Synopsis")
         st.markdown("""
-<<<<<<< HEAD
-                    Many companies are built around lessening one’s environmental impact or carbon footprint. They offer products and services that are environmentally friendly
-=======
                     Many companies are built around lessening one's environmental impact or carbon footprint. They offer products and services that are environmentally friendly
-
->>>>>>> aea434ffe172421a3662c20abcacb80f6ee4710f
                     and sustainable, in line with their values and ideals. They would like to determine how people perceive climate change and whether or not they believe it is a
-                    real threat. This would add to their market research efforts in gauging how their product/service may be received.
+                    real threat. This would add to their market research efforts in gauging how their product or service may be received.
 
                     Creating a Machine Learning model that is able to classify whether or not a person believes in climate change, based on their novel tweet data.
 
                     Providing an accurate and robust solution to this task gives companies access to a broad base of consumer sentiment, spanning multiple demographic and geographic
                     categories - thus increasing their insights and informing future marketing strategies.
+                    """)
+
+        toc1.header("Our Approach")
+        st.markdown("""
+                    **Summary of analysis before modelling**
+
+                    The exploratory data analysis gave insight into which words were being used the most, in terms of a politcal figure and famous people it was Donald Trump, Obama,
+                    Leonardo Dicaprio, Scott Pruis, Al Gore, Steves Goddard. Organisations that appeared a lot in these tweets were EPA, Exxon and UN. Another discovery was that appeared
+                    a lot in the tweets had 'RT' which means that people retweeted their feelings of sentiment instead of saying anything personal. The countries that appeared the most
+                    were USA, China and the city Paris.
+
+                    The words that appeared the most from the WordClouds are fight climate, scientist, news, warm urlweb (urlweb means a link was originally here), change denier,
+                    not believe, believe climate, cause global and the realdonaldtrump.
+
+                    The people that are metioned above play a major role in climate change. Trump's first term has been a relentless drive for no restrictions on fossil energy development.
+                    This in other words was to create more jobs and GDP for America with no sentiment towards the environment. He changed all the laws that Obama started to protect the
+                    environment such as the safety rules for for offshore drilling operations.
+
+                    Leonardo Dicaprio has played a monumental movement in helping climate change where he has a foundation called the Leonardo DiCaprio Foundation, this is intuitively why
+                    his name appears a lot in the tweets. Steve Goddard is an environmentalist and is on both sides of the climate debate. He is famous for writing the article The Register,
+                    which describes Arctic Sea ice is not receding and claimed that data from the National Snow and Ice Data Center (NSIDC) showing the opposite was incorrect. China is the
+                    worlds largest emiiter of carbon dioxide since the economy is growing on a large scale and they have one of the hugest populations.
+
+                    The second country that emmits the most carbon dioxide is the USA. The Paris climate change agreement is the reasons for the city to appear so much in the tweets. The agreement
+                    includes commitments from all major emitting countries to cut their climate-altering pollution and to strengthen those commitments over time. This is some of the insight found
+                    from analysis and you can see why these organisations, places, people and choice of words have appeared on the topic of climate change.
+
+                    The preprocessing of data was done based on the statistical analysis of counting each of the specific characters to see if it added to sentiment.
+
+                    > _The following was noticed:_
+
+                            - The increase in url links showed a sentiment of 2: thats why the link was
+                              replaced with 'urlweb'.
+
+                            - Punctuation such as question and exclamation marks added no sentiment.
+
+                            - The word count did not favour any sentiment therefore not added as a parameter.
+
+                            - The emojicons added no value to sentiment so it was replaced with 'emoji' in
+                              order to not lose information.
+
+                            - The capatalised words were few and did not add to sentiment therefore the tweets
+                              were made as all lower case. The only aspects left of the tweet were lowercase
+                              words and no other symbols.
+
+                            - The stopwords words used a process called stemming to get the routes of the
+                              words, this would help the process of vectorization. The stopwords were removed
+                              to decrease the noise from the the actual words that add sentiment.
+
+                            - The repeated rows in the train set were removed as it would not add any insight
+                              in the training the model.
+
                     """)
 
         toc1.generate()
@@ -488,7 +537,7 @@ def main():
                   use_column_width= True)
 
         st.sidebar.title("Table of contents")
-
+        st.sidebar.info("The table of contents is interactive")
         class Toc2:
             def __init__(self):
                 self._items = []
@@ -521,6 +570,9 @@ def main():
 
         toc2.placeholder()
 
+        st.image("https://expertsystem.com/wp-content/uploads/2017/03/machine-learning-definition.jpeg",
+                 use_column_width= True)
+
         toc2.title("What is Machine Learning?")
         st.markdown("""
                     Machine learning is an application of artificial intelligence (AI) that provides systems the ability to automatically learn and improve from experience without
@@ -535,10 +587,13 @@ def main():
                     """)
 
 
-        toc2.header("Machine Learning Methods")
+        toc2.header("🤖 Machine Learning Methods 🤖")
         st.markdown("""
                     Machine learning algorithms are often categorized as supervised or unsupervised.
                     """)
+
+        st.image("https://blog.bismart.com/hs-fs/hubfs/Machinne%20Learning%20Types%20Bismart.png?width=900&name=Machinne%20Learning%20Types%20Bismart.png",
+                 use_column_width= True)
 
         toc2.subheader("Supervised Machine Learning techniques")
         st.markdown("""
@@ -549,34 +604,28 @@ def main():
                     The learning algorithm can also compare its output with the correct, intended output and find
                     errors in order to modify the model accordingly.
                     """)
+        st.image("https://miro.medium.com/max/929/1*U5GzWYAm8t1urqdDxpiOFw.jpeg",
+                 use_column_width= True)
 
         toc2.subheader("Unsupervised Machine Learning techniques")
         st.markdown("""
                     Unsupervised machine learning algorithms are used when the information used to train is neither classified nor labeled. Unsupervised learning studies how systems
-<<<<<<< HEAD
-                    can infer a function to describe a hidden structure from unlabeled data. The system doesn’t figure out the right output, but it explores the data and can draw
-=======
-
                     can infer a function to describe a hidden structure from unlabeled data. The system doesn't figure out the right output, but it explores the data and can draw
-
->>>>>>> aea434ffe172421a3662c20abcacb80f6ee4710f
                     inferences from datasets to describe hidden structures from unlabeled data.
                     """)
+        st.image("https://www.newtechdojo.com/wp-content/uploads/2018/03/How-unsupervised-machine-Learning-works.jpg",
+                 use_column_width= True)
 
 
         toc2.title("Natural Language Processing?")
+        st.image("https://opendatascience.com/wp-content/uploads/2020/05/Image-for-ODSC-article-750x350.jpg",
+                 use_column_width= True)
         st.markdown("""
-<<<<<<< HEAD
-                    Natural Language Processing (NLP) is the technology used to aid computers to understand the human’s natural language. It’s not an easy task teaching
-=======
-
                     Natural Language Processing (NLP) is the technology used to aid computers to understand the human's natural language. It's not an easy task teaching
-
->>>>>>> aea434ffe172421a3662c20abcacb80f6ee4710f
                     machines to understand how we communicate.
                     """)
 
-        toc2.header("What is Natural Language Processing?")
+        toc2.header("߷ What is Natural Language Processing? ߷")
         st.markdown("""
                     Natural Language Processing is a branch of artificial intelligence (AI) that deals with the interaction between computers and humans using the
                     natural language. The ultimate objective of NLP is to read, decipher, understand, and make sense of the human languages in a manner that is valuable.
@@ -588,18 +637,14 @@ def main():
                                 1. A human talks to the machine
                                 2. The machine captures the audio
                                 3. Audio to text conversion takes place
-<<<<<<< HEAD
-                                4. Processing of the text’s data
-=======
-
                                 4. Processing of the text's data
-
->>>>>>> aea434ffe172421a3662c20abcacb80f6ee4710f
                                 5. Data to audio conversion takes place
                                 6. The machine responds to the human by playing the audio file
                     """)
+        st.image("https://cdn.business2community.com/wp-content/uploads/2019/04/NLP_Infog-01-900x427.png",
+                 use_column_width= True)
 
-        toc2.header("What is NLP used for?")
+        toc2.header("🔗 What is NLP used for? 🔗")
         st.markdown("""
                     > _Natural Language Processing is the driving force behind the following common applications:_
 
@@ -607,28 +652,18 @@ def main():
                             - Word Processors such as Microsoft Word and Grammarly that employ NLP to check
                               grammatical accuracy of texts.
                             - Interactive Voice Response (IVR) applications used in call centers to respond to
-<<<<<<< HEAD
-                              certain users’ requests.
-=======
-
                               certain users' requests.
-
->>>>>>> aea434ffe172421a3662c20abcacb80f6ee4710f
                             - Personal assistant applications such as OK Google, Siri, Cortana, and Alexa.
                     """)
 
-        toc2.header("Why is NLP difficult?")
+        toc2.header("🖥️ Why is NLP difficult? 🖥️")
         st.markdown("""
-<<<<<<< HEAD
-                    Natural Language processing is considered a difficult problem in computer science. It’s the nature of the human language that makes NLP difficult.
-=======
 
                     Natural Language processing is considered a difficult problem in computer science. It's the nature of the human language that makes NLP difficult.
 
->>>>>>> aea434ffe172421a3662c20abcacb80f6ee4710f
                     The rules that dictate the passing of information using natural languages are not easy for computers to understand.
-                    Some of these rules can be high-leveled and abstract:
 
+                    Some of these rules can be high-leveled and abstract:
                     > _for example:_
 
                                     When someone uses a sarcastic remark to pass information.
@@ -636,18 +671,15 @@ def main():
                     On the other hand, some of these rules can be low-levelled:
                     > _for example:_
 
-<<<<<<< HEAD
-                                    Using the character “s” to signify the plurality of items.
-=======
                                     Using the character "s" to signify the plurality of items.
 
->>>>>>> aea434ffe172421a3662c20abcacb80f6ee4710f
 
                     Comprehensively understanding the human language requires understanding both the words and how the concepts are connected to deliver the intended message.
+
                     While humans can easily master a language, the ambiguity and imprecise characteristics of the natural languages are what make NLP difficult for machines to implement.
                     """)
 
-        toc2.header("How does NLP Works?")
+        toc2.header("💾 How does NLP Works? 💾")
         st.markdown("""
                     NLP entails applying algorithms to identify and extract the natural language rules such that the unstructured language data is converted into a form that
                     computers can understand.
@@ -661,27 +693,15 @@ def main():
                       the English and the Russian languages.
 
                             Here is the biblical sentence that required translation:
-
-<<<<<<< HEAD
-                            “The spirit is willing, but the flesh is weak.”
-=======
-                            "The spirit is willing, but the flesh is weak."
-
->>>>>>> aea434ffe172421a3662c20abcacb80f6ee4710f
+                                "The spirit is willing, but the flesh is weak."
 
                             Here is the result when the sentence was translated to Russian and back to
                             English:
+                                "The vodka is good, but the meat is rotten."
 
-<<<<<<< HEAD
-                            “The vodka is good, but the meat is rotten.”
-=======
-
-                            "The vodka is good, but the meat is rotten."
-
->>>>>>> aea434ffe172421a3662c20abcacb80f6ee4710f
                     """)
 
-        toc2.header("What are the techniques used in NLP?")
+        toc2.header("⌨️ What are the techniques used in NLP? ⌨️")
         st.markdown("""
                     Syntactic analysis and semantic analysis are the main techniques used to complete Natural Language Processing tasks.
                     """)
@@ -747,11 +767,175 @@ def main():
                           - Natural language generation: It involves using databases to derive semantic
                                                          intentions and convert them into human language.
                     """)
+        st.image("https://storage.ning.com/topology/rest/1.0/file/get/5104454460?profile=RESIZE_710x",
+                  use_column_width = True)
 
-        toc2.title("Classification")
-        toc2.header("Models used")
+        toc2.title("Supervised Machine Learning")
+        st.image("https://miro.medium.com/max/1400/1*t8igzDSUC-1qaJQRQpbwBA.png",
+                 use_column_width = True)
+        toc2.header("📚 Classification 📚")
+        toc2.subheader("What is classification?")
+        st.markdown("""
+                    Classification is a process of categorizing a given set of data into classes, It can be performed on both structured or unstructured data. The process starts with
+                    predicting the class of given data points. The classes are often referred to as target, label or categories.
 
-        toc2.header("How it works?")
+                    The classification predictive modeling is the task of approximating the mapping function from input variables to discrete output variables. The main goal is to
+                    identify which class/category the new data will fall into.
+                    """)
+        st.image("https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2019/11/classification.png",
+                 use_column_width = True)
+
+        toc2.subheader("Terminology")
+        st.markdown("""
+                     - **Classifier:** It is an algorithm that is used to map the input data to a specific category.
+
+                     - **Classification Model:** The model predicts or draws a conclusion to the input data given for training, it will predict the class or category for the data.
+
+                     - **Feature:** A feature is an individual measurable property of the phenomenon being observed.
+
+                     - **Binary:** Classification – It is a type of classification with two outcomes, for eg – either true or false.
+
+                     - **Multi-Class Classification:** The classification with more than two classes, in multi-class classification each sample is assigned to one and only one label or target.
+
+                     - **Multi-label Classification:** This is a type of classification where each sample is assigned to a set of labels or targets.
+
+                     - **Initialize:** It is to assign the classifier to be used for the
+
+                     - **Train the Classifier:** Each classifier in sci-kit learn uses the fit(X, y) method to fit the model for training the train X and train label y.
+
+                     - **Predict the Target:** For an unlabeled observation X, the predict(X) method returns predicted label y.
+
+                     - **Evaluate:** This basically means the evaluation of the model i.e classification report, accuracy score, etc.
+                    """)
+
+        toc2.subheader("Models")
+        st.markdown("""
+                    In machine learning, classification is a supervised learning concept which basically categorizes a set of data into classes.
+
+                    The most common classification problems are – speech recognition, face detection, handwriting recognition, document classification, etc. It can be either a
+                    binary classification problem or a multi-class problem too.
+
+                    **Logistic Regression**
+
+                    It is a classification algorithm in machine learning that uses one or more independent variables to determine an outcome. The outcome is measured with a
+                    dichotomous variable meaning it will have only two possible outcomes.
+
+                    The goal of logistic regression is to find a best-fitting relationship between the dependent variable and a set of independent variables. It is better than
+                    other binary classification algorithms like nearest neighbor since it quantitatively explains the factors leading to classification.
+
+                    > _Advantages and Disadvantages_
+
+                            Logistic regression is specifically meant for classification, it is useful in
+                            understanding how a set of independent variables affect the outcome of the
+                            dependent variable.
+
+                            The main disadvantage of the logistic regression algorithm is that it only works
+                            when the predicted variable is binary, it assumes that the data is free of missing
+                            values and assumes that the predictors are independent of each other.
+
+                    > _Best Use Cases_
+
+                            - Identifying risk factors for diseases
+                            - Word classification
+                            - Weather Prediction
+                            - Voting Applications
+                    """)
+
+        st.image("https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2019/11/log.png",
+                 use_column_width = True)
+
+        st.markdown("""
+                    **Naive Bayes Classifier**
+
+                    It is a classification algorithm based on Bayes’s theorem which gives an assumption of independence among predictors. In simple terms, a Naive Bayes classifier
+                    assumes that the presence of a particular feature in a class is unrelated to the presence of any other feature.
+
+                    Even if the features depend on each other, all of these properties contribute to the probability independently. Naive Bayes model is easy to make and is particularly
+                    useful for comparatively large data sets. Even with a simplistic approach, Naive Bayes is known to outperform most of the classification methods in machine learning.
+                    Following is the Bayes theorem to implement the Naive Bayes Theorem.
+
+                    > _Advantages and Disadvantages_
+
+                            The Naive Bayes classifier requires a small amount of training
+                            data to estimate the necessary parameters to get the results.
+                            They are extremely fast in nature compared to other classifiers.
+
+                            The only disadvantage is that they are known to be a bad estimator.
+
+                    > _Best Use Cases_
+
+                            - Disease Predictions
+                            - Document Classification
+                            - Spam Filters
+                            - Sentiment Analysis
+                    """)
+
+        st.image("https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2019/11/naive.png",
+                 use_column_width = True)
+
+        st.markdown("""
+                    **K-Nearest Neighbor**
+
+                    It is a lazy learning algorithm that stores all instances corresponding to training data in n-dimensional space. It is a lazy learning algorithm as it does not
+                    focus on constructing a general internal model, instead, it works on storing instances of training data.
+
+                    Classification is computed from a simple majority vote of the k nearest neighbors of each point. It is supervised and takes a bunch of labeled points and uses
+                    them to label other points. To label a new point, it looks at the labeled points closest to that new point also known as its nearest neighbors. It has those
+                    neighbors vote, so whichever label the most of the neighbors have is the label for the new point. The “k” is the number of neighbors it checks.
+
+                    > _Advantages And Disadvantages_
+
+                            This algorithm is quite simple in its implementation and is robust to
+                            noisy training data. Even if the training data is large, it is quite
+                            efficient.
+
+                            The only disadvantage with the KNN algorithm is that there
+                            is no need to determine the value of K and computation cost is pretty
+                            high compared to other algorithms.
+
+                    > _Best Use Cases_
+
+                        - Industrial applications to look for similar tasks in comparison to others
+                        - Handwriting detection applications
+                        - Image recognition
+                        - Video recognition
+                        - Stock analysis
+                    """)
+        st.image("https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2019/11/knn.png",
+                 use_column_width = True)
+
+        st.markdown("""
+                    The support vector machine is a classifier that represents the training data as points in space separated into categories by a gap as wide as possible.
+                    New points are then added to space by predicting which category they fall into and which space they will belong to.
+
+                    > _Advantages and Disadvantages_
+
+                            It uses a subset of training points in the decision function which makes
+                            it memory efficient and is highly effective in high dimensional spaces.
+
+                            The only disadvantage with the support vector machine is that the
+                            algorithm does not directly provide probability estimates.
+
+                    > _Best Use cases_
+
+                            - Business applications for comparing the performance of a stock over a
+                              period of time
+                            - Investment suggestions
+                            - Classification of applications requiring accuracy and efficiency
+                    """)
+        st.image("https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2019/11/svm-2-1.png",
+                 use_column_width = True)
+
+        toc2.header("📈 Regression 📈")
+        toc2.subheader("Brief Overview")
+        st.markdown("""
+                    Regression is another form of supervised learning. The difference between classification and regression is that regression outputs a number rather than a class.
+                    Therefore, regression is useful when predicting number based problems like stock market prices, the temperature for a given day, or the probability of an event.
+                    """ )
+        st.image("https://miro.medium.com/max/1400/1*LbvtG6tsDwTeS7QPn6NfGw.png",
+                 use_column_width = True)
+
+
         toc2.generate()
 
 
@@ -1094,10 +1278,6 @@ def main():
             st.pyplot()
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> aea434ffe172421a3662c20abcacb80f6ee4710f
     # Models
     if selection == "Models":
         st.image("https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/developing/test/resources/Predictivemodel.png",
