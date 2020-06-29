@@ -249,7 +249,7 @@ def main():
                     Increasingly, however, hot, dry places will get hotter and drier, and places that were once temperate and had regular rainfall will become much hotter and much
                     drier.
 
-                    Heatwaves and droughts will increase pressure on already fragile power, healthcare, water and sewage systems, as well as reducing countries’ ability to feed
+                    Heatwaves and droughts will increase pressure on already fragile power, healthcare, water and sewage systems, as well as reducing countries' ability to feed
                     themselves or export agricultural products. Heat will also become an increasingly important killer, especially of the very young and the old.
 
                     ![Header Image](https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_465,h_261/https://warmheartworldwide.org/wp-content/uploads/2018/07/EPA-project-droughts-to-end-of-century-1.gif)
@@ -315,7 +315,15 @@ def main():
                     In fact, ironically, although most of the human activity that produces climate change occurs in the developed world, many of climate changes’ effects will
                     actually be beneficial in the developed world. In the short- and middle-term, for example, climate change will likely increase fish and agricultural yields
                     where populations are small and shrinking and productivity is highest.
-                    Climate change’s impacts in the developing world will be almost exclusively negative, often terribly so.
+                    Climate change's impacts in the developing world will be almost exclusively negative, often terribly so.
+
+                    > As K. Smith tartly observed in 2008:
+
+                      "The rich will find their world to be more expensive, inconvenient, uncomfortable, disrupted and colourless; in general, more unpleasant and unpredictable,
+                      perhaps greatly so. The poor will die."
+
+                    ![Header Image](https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_400/https://warmheartworldwide.org/wp-content/uploads/2018/07/Vulnerable_Countries_400.jpg)]
+                    ![Header Image](https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_450/https://warmheartworldwide.org/wp-content/uploads/2018/07/Potential-vulnerability.png)
 
                     > As K. Smith tartly observed in 2008:
 
@@ -658,7 +666,6 @@ def main():
     if selection == "Data Exploration":
         st.image("https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/developing/test/resources/dataexploration.png",
                   use_column_width= True)
-<<<<<<< HEAD
 
         # EDA
         my_dataset = "https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/resources/train.csv"
@@ -993,18 +1000,6 @@ def main():
             sns.barplot(data=hash4, x= "Hashtag", y = "Count")
             st.pyplot()
 
-
-
-
-
-
-=======
-	
-	st.info("EDA")
-        sns.factorplot('sentiment',data = raw, kind='count',size=6,aspect = 1.5, palette = 'PuBuGn_d') 
-        plt.suptitle("Plot 1: Climate Sentiment Bar Graph",y=1)
-        st.pyplot()
->>>>>>> master
 
 
     # Models
