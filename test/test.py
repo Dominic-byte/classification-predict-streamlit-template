@@ -39,8 +39,8 @@ from nltk import PorterStemmer
 from nltk.stem import WordNetLemmatizer
 from nltk.probability import FreqDist
 import spacy
-import en_core_web_sm
-sp = en_core_web_sm.load()
+spacy.download('en')
+sp = spacy.download('en')
 
 ### Loading the data
 # Vectorizer
