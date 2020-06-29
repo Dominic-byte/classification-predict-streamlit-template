@@ -941,7 +941,7 @@ def main():
 
     # Data Exploration
     if selection == "Data Exploration":
-        st.image("https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/developing/test/resources/dataexploration.png",
+        st.image("https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/dataexploration.png",
                   use_column_width= True)
 
         # EDA
@@ -949,19 +949,17 @@ def main():
 
         #Lemmetization and Stemming
         st.subheader("**_Lemmetization and Stemming_**")
+        st.markdown('''Type in words with a space inbetween and the two methods will return the route word''')
         st.info("Predict Lemmetization and  Stemming of your own words")
-
-        # Creating a text box for user input
+		# Creating a text box for user input
         tweet_text_ls = st.text_area("Enter Text","Type Here")
 
         #Lemmetization Predictor
         if st.button('Lemmetization'):
             text = sp(tweet_text_ls)
             pred_l = []
-
             for word in text:
                 pred_l.append('Lemma for '+str(word)+' is '+str(word.lemma_))
-
             for p in pred_l:
                 st.success("{}".format(p))
 
@@ -970,10 +968,8 @@ def main():
             stemmer = PorterStemmer()
             tokenizer = nltk.word_tokenize(tweet_text_ls)
             pred_l = []
-
             for token in tokenizer:
                 pred_l.append('Stem for '+token+' is '+stemmer.stem(token))
-
             for p in pred_l:
                 st.success("{}".format(p))
 
@@ -1019,7 +1015,6 @@ def main():
             def figure1(df):
                 fig = sns.factorplot('sentiment',data = df, kind='count',size=6,aspect = 1.5, palette = 'PuBuGn_d')
                 return fig
-
             fig1 = figure1(data)
             st.markdown("<h1 style='text-align: center; color: black;'>Distribution of Sentiment</h1>", unsafe_allow_html=True)
             st.pyplot(fig1)
@@ -1084,10 +1079,7 @@ def main():
             return df1
         tokenised_tweet = token(clean_train_df)
 
-        #Create word2vec
-
         #create list of words with no repetitions
-
         all_words =[]
         for index, rows in clean_train_df.iterrows():
             all_words.append(rows['clean_tweet'].split(' '))
@@ -1095,9 +1087,9 @@ def main():
         single_list_of_words = list(set(flatlist_all))
 
         #Word2Vec
-        st.subheader("**_Word2Vec_**")
+        st.subheader("**_Word2Vec of Clean Tweets_**")
+        st.markdown('''It will return the probability of other words appearing from the word you typed in''')
         st.info("Type in word from tweets that can be observed above")
-
         # Creating a text box for user input
         tweet_text_vec = st.text_area("Enter Text","Eg: realdonaldtrump")
 
@@ -1127,40 +1119,11 @@ def main():
 
         #WordCloud Creation
 		#Sentiment of 2
-		# Create and generate a word cloud image:
-        @st.cache(persist=True,allow_output_mutation=True)
-        def WordCloud1(df):
-            news_words =' '.join([text for text in df['clean_tweet'][df['sentiment'] == 2]])
-            wordcloud = WordCloud(background_color ='white',width=2000, height=1500, random_state=21, max_font_size=300).generate(news_words)
-            return wordcloud
-        wordcloud1 = WordCloud1(clean_train_df)
 
-        #Sentiment of 1
-		# Create and generate a word cloud image:
-        def WordCloud2(df):
-            pro_words =' '.join([text for text in df['clean_tweet'][df['sentiment'] == 1]])
-            wordcloud = WordCloud(background_color ='white',width=2000, height=1500, random_state=21, max_font_size=300).generate(pro_words)
-            return wordcloud
-        wordcloud2 = WordCloud2(clean_train_df)
-
-        #Sentiment of 0
-		# Create and generate a word cloud image:
-        def WordCloud3(df):
-            neutral_words =' '.join([text for text in df['clean_tweet'][df['sentiment'] == 0]])
-            wordcloud = WordCloud(background_color ='white',width=2000, height=1500, random_state=21, max_font_size=300).generate(neutral_words)
-            return wordcloud
-        wordcloud3 = WordCloud3(clean_train_df)
-
-        #Sentiment of -1
-		# Create and generate a word cloud image:
-        def WordCloud4(df):
-            neg_words =' '.join([text for text in df['clean_tweet'][df['sentiment'] == 2]])
-            wordcloud = WordCloud(background_color ='white',width=2000, height=1500, random_state=21, max_font_size=300).generate(neg_words)
-            return wordcloud
-        wordcloud4 = WordCloud4(clean_train_df)
+		#Sentiment of -1
 
         #Markdown for WordCloud
-        st.subheader('**_WordCloud Plots_**')
+        st.subheader('**_WordCloud Plots of Clean Tweets_**')
         st.markdown('''
 					<p>Plotting a <a href="https://www.geeksforgeeks.org/generating-word-cloud-python/" target="_blank">WordCloud</a> will help the common words used in a tweet. The most important analysis is understanding
 					sentiment and the wordcloud will show the common words used by looking at the train dataset</p>
@@ -1170,32 +1133,42 @@ def main():
         st.info('WordClouds')
 
         if st.button("sentiment 2"):
-            plt.imshow(wordcloud1)
-            plt.axis("off")
-            st.markdown("<h1 style='text-align: center; color: black;'> Word Cloud for News(2) Sentiment</h1>", unsafe_allow_html=True)
-            plt.show()
-            st.pyplot()
+            st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/resources/imgs/WordCloud2.PNG')
         if st.button("sentiment 1"):
-            plt.imshow(wordcloud2)
-            plt.axis("off")
-            st.markdown("<h1 style='text-align: center; color: black;'> Word Cloud for Postive(1) Sentiment</h1>", unsafe_allow_html=True)
-            plt.show()
-            st.pyplot()
+            st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/resources/imgs/WordCloud1.PNG')
         if st.button('sentiment 0'):
-            plt.imshow(wordcloud3)
-            plt.axis("off")
-            st.markdown("<h1 style='text-align: center; color: black;'> Word Cloud for Neutral(0) Sentiment</h1>", unsafe_allow_html=True)
-            plt.show()
-            st.pyplot()
+            st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/resources/imgs/WordCloud0.PNG')
         if st.button('sentiment -1'):
-            plt.imshow(wordcloud4)
+            st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/resources/imgs/WordCloud-1.PNG')
+
+		#Create your own wordcloud
+
+        #info
+        st.subheader("**_Create Your Own WordCloud_**")
+        st.markdown('''Type in in a long paragraph and see what the WordCloud generates''')
+        st.info("WordCloud Creator")
+
+        list_test = ['hello', 'test','testing','please']
+        # Creating a text box for user input
+        tweet_text_cloud = st.text_area("Enter Text Here","Type Text Here")
+        tweet_text_list = tweet_text_cloud.split( )
+        if len(tweet_text_list) >= 1:
+            list_test = tweet_text_list
+
+        #Create WorldCloud
+        words =' '.join([text for text in list_test])
+        wordcloud = WordCloud(background_color ='white',width=1000, height=750, random_state=21, max_font_size=300).generate(words)
+
+        #Show WordCloud Visually
+        if st.button("Create"):
+            plt.imshow(wordcloud)
             plt.axis("off")
-            st.markdown("<h1 style='text-align: center; color: black;'> Word Cloud for Negative(-1) Sentiment</h1>", unsafe_allow_html=True)
+            st.markdown("<h1 style='text-align: center; color: black;'>Your Own WordCloud</h1>", unsafe_allow_html=True)
             plt.show()
             st.pyplot()
 
         #Hashtags
-        st.subheader('**_Hashtag Plots_**')
+        st.subheader('**_Hashtag Plots of Clean Tweets_**')
         st.markdown('''
 					<p>The hashtags were plotted per sentiment as people use '#' in tweets
 					before a relevant keyword or phrase in their tweets.
@@ -1205,7 +1178,7 @@ def main():
         @st.cache(persist=True,allow_output_mutation=True)
         def hashtag_extract(x):
             hashtags = []
-			# Loop over the words in the tweet
+            # Loop over the words in the tweet
             for i in x:
                 ht = re.findall(r"#(\w+)", i)
                 hashtags.append(ht)
@@ -1225,15 +1198,16 @@ def main():
         HT_anti = sum(HT_anti,[])
 
         #Plotting Hashtags
-		#Info
+        #Info
         st.info('Hashtags')
+
 
         if st.button("Sentiment 2"):
             @st.cache(persist=True,allow_output_mutation=True)
             def hashtag1(lst):
                 a = nltk.FreqDist(lst)
                 d = pd.DataFrame({'Hashtag': list(a.keys()),'Count': list(a.values())})
-				# selecting top 5 most frequent hashtags
+                # selecting top 5 most frequent hashtags
                 d = d.sort_values(by = 'Count',ascending = False)
                 return d[0:5]
             hash1 = hashtag1(HT_news)
@@ -1245,110 +1219,222 @@ def main():
             def hashtag2(lst):
                 a = nltk.FreqDist(lst)
                 d = pd.DataFrame({'Hashtag': list(a.keys()),'Count': list(a.values())})
-				# selecting top 5 most frequent hashtags
+                # selecting top 5 most frequent hashtags
                 d = d.sort_values(by = 'Count',ascending = False)
                 return d[0:5]
             hash2 = hashtag2(HT_pro)
             st.markdown("<h1 style='text-align: center; color: black;'> Hashtag for Postive(1) Sentiment</h1>", unsafe_allow_html=True)
             sns.barplot(data=hash2, x= "Hashtag", y = "Count")
             st.pyplot()
+
         if st.button('Sentiment 0'):
             @st.cache(persist=True,allow_output_mutation=True)
             def hashtag3(lst):
                 a = nltk.FreqDist(lst)
                 d = pd.DataFrame({'Hashtag': list(a.keys()),'Count': list(a.values())})
-				# selecting top 5 most frequent hashtags
+                # selecting top 5 most frequent hashtags
                 d = d.sort_values(by = 'Count',ascending = False)
                 return d[0:5]
             hash3 = hashtag3(HT_neutral)
             st.markdown("<h1 style='text-align: center; color: black;'> Hashtag for Neutral(0) Sentiment</h1>", unsafe_allow_html=True)
             sns.barplot(data=hash3, x= "Hashtag", y = "Count")
             st.pyplot()
+
         if st.button('Sentiment -1'):
             @st.cache(persist=True,allow_output_mutation=True)
             def hashtag4(lst):
                 a = nltk.FreqDist(lst)
                 d = pd.DataFrame({'Hashtag': list(a.keys()),'Count': list(a.values())})
-				# selecting top 5 most frequent hashtags
+                # selecting top 5 most frequent hashtags
                 d = d.sort_values(by = 'Count',ascending = False)
                 return d[0:5]
             hash4 = hashtag4(HT_anti)
             st.markdown("<h1 style='text-align: center; color: black;'> Hashtag for Negative(-1) Sentiment</h1>", unsafe_allow_html=True)
             sns.barplot(data=hash4, x= "Hashtag", y = "Count")
-            st.pyplot()
+            st.pyplot()	
 
 
     # Models
     if selection == "Models":
-        st.image("https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/developing/test/resources/Predictivemodel.png",
+        st.image("https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/Predictivemodel.png",
                   use_column_width= True)
 
-        st.sidebar.title("Table of contents")
-        class Toc:
+        st.info("Prediction with ML Models")
+        # Creating a text box for user input
+        tweet_text = st.text_area("Enter Text","Type Here")
 
-            def __init__(self):
-                self._items = []
-                self._placeholder = None
+        if st.button("Classifier: LinearSVC"):
+            # Transforming user input with vectorizer
+            vect_text = tweet_cv.transform([tweet_text]).toarray()
+			# Load your .pkl file with the model of your choice + make predictions
+			# Try loading in multiple models to give the user a choice
+            prediction = joblib.load(open(os.path.join("test/resources/LinearSVC_model.pkl"),"rb"))
+            prediction = predictor.predict(vect_text)
 
-            def title(self, text):
-                self._markdown(text, "h1")
+			# When model has successfully run, will print prediction
+			# You can use a dictionary or similar structure to make this output
+            if prediction == 2:
+                st.success('Sentiment prediction: 2 (Very Postive Sentiment)')
+            if prediction == 1:
+                st.success('Sentiment prediction: 1 (Postive Sentiment)')
+            if prediction == 0:
+                st.success('Sentiment prediction: 0 (Neutral Sentiment)')
+            if prediction == -1:
+                st.success('Sentiment prediction: -1 (Negative Sentiment)')
 
-            def header(self, text):
-                self._markdown(text, "h2", " " * 2)
+        if st.button("Classifier: LogisticRegression"):
+			# Transforming user input with vectorizer
+            vect_text = tweet_cv.transform([tweet_text]).toarray()
+			# Load your .pkl file with the model of your choice + make predictions
+			# Try loading in multiple models to give the user a choice
+            predictor = joblib.load(open(os.path.join("test/resources/LogisticRegression_model.pkl"),"rb"))
+            prediction = predictor.predict(vect_text)
 
-            def subheader(self, text):
-                self._markdown(text, "h3", " " * 4)
+			# When model has successfully run, will print prediction
+			# You can use a dictionary or similar structure to make this output
+            if prediction == 2:
+                st.success('Sentiment prediction: 2 (Very Postive Sentiment)')
+            if prediction == 1:
+                st.success('Sentiment prediction: 1 (Postive Sentiment)')
+            if prediction == 0:
+                st.success('Sentiment prediction: 0 (Neutral Sentiment)')
+            if prediction == -1:
+                st.success('Sentiment prediction: -1 (Negative Sentiment)')
 
-            def placeholder(self, sidebar=False):
-                self._placeholder = st.sidebar
+        if st.button("Classifier: KNeighborsClassifier"):
+			# Transforming user input with vectorizer
+            vect_text = tweet_cv.transform([tweet_text]).toarray()
+			# Load your .pkl file with the model of your choice + make predictions
+			# Try loading in multiple models to give the user a choice
+            predictor = joblib.load(open(os.path.join("test/resources/KNeighborsClassifier_model.pkl"),"rb"))
+            prediction = predictor.predict(vect_text)
 
-            def generate(self):
-                if self._placeholder:
-                    self._placeholder.markdown("\n".join(self._items), unsafe_allow_html=True)
-
-            def _markdown(self, text, level, space=""):
-                key = "".join(filter(str.isalnum, text)).lower()
-
-                st.markdown(f"<{level} id='{key}'>{text}</{level}>", unsafe_allow_html=True)
-                self._items.append(f"{space}* <a href='#{key}'>{text}</a>")
-
-
-        toc = Toc()
+			# When model has successfully run, will print prediction
+			# You can use a dictionary or similar structure to make this output
+            if prediction == 2:
+                st.success('Sentiment prediction: 2 (Very Postive Sentiment)')
+            if prediction == 1:
+                st.success('Sentiment prediction: 1 (Postive Sentiment)')
+            if prediction == 0:
+                st.success('Sentiment prediction: 0 (Neutral Sentiment)')
+            if prediction == -1:
+                st.success('Sentiment prediction: -1 (Negative Sentiment)')
 
 
-        toc.placeholder()
+        if st.button("Classifier: PassiveAggressiveClassifier"):
+			# Transforming user input with vectorizer
+            vect_text = tweet_cv.transform([tweet_text]).toarray()
+			# Load your .pkl file with the model of your choice + make predictions
+			# Try loading in multiple models to give the user a choice
+            predictor = joblib.load(open(os.path.join("test/resources/PassiveAggressiveClassifier_model.pkl"),"rb"))
+            prediction = predictor.predict(vect_text)
 
-        toc.title("Title")
+			# When model has successfully run, will print prediction
+			# You can use a dictionary or similar structure to make this output
+            if prediction == 2:
+                st.success('Sentiment prediction: 2 (Very Postive Sentiment)')
+            if prediction == 1:
+                st.success('Sentiment prediction: 1 (Postive Sentiment)')
+            if prediction == 0:
+                st.success('Sentiment prediction: 0 (Neutral Sentiment)')
+            if prediction == -1:
+                st.success('Sentiment prediction: -1 (Negative Sentiment)')
 
-        for a in range(10):
-            st.write("Blabla...")
+        if st.button("Classifier: GradientBoostingClassifier"):
+			# Transforming user input with vectorizer
+            vect_text = tweet_cv.transform([tweet_text]).toarray()
+			# Load your .pkl file with the model of your choice + make predictions
+			# Try loading in multiple models to give the user a choice
+            predictor = joblib.load(open(os.path.join("test/resources/GradientBoostingClassifier_model.pkl"),"rb"))
+            prediction = predictor.predict(vect_text)
 
-        toc.header("Header 1")
+			# When model has successfully run, will print prediction
+			# You can use a dictionary or similar structure to make this output
+            if prediction == 2:
+                st.success('Sentiment prediction: 2 (Very Postive Sentiment)')
+            if prediction == 1:
+                st.success('Sentiment prediction: 1 (Postive Sentiment)')
+            if prediction == 0:
+                st.success('Sentiment prediction: 0 (Neutral Sentiment)')
+            if prediction == -1:
+                st.success('Sentiment prediction: -1 (Negative Sentiment)')
 
-        for a in range(10):
-            st.write("Blabla...")
+        st.subheader("**_Linear Support Vector Classifier_**")
+        st.markdown("""
+				A Support Vector Machine (SVM) is a discriminative classifier formally defined by a separating hyperplane. In other words, given labeled training data (supervised learning),
+				the algorithm outputs an optimal hyperplane which categorizes new examples.
+				Since it is a linear svc the hyperplane will be predicting each class with a linear kernal.
+				It is vary similar to SVC with kernal = 'linear' and the multiclass support is handled according to a one-vs-the-rest scheme.</p>
+					""",unsafe_allow_html=True)
+        st.info('Linear SVC for Multiclass')
+		#image
+        st.subheader("**_Logistic Regression Classifier_**")
+        st.markdown("""
+					It is a statistical method for analysing a data set in which there are one or more independent variables that determine an outcome.
+					The outcome is measured with a dichotomous variable (in which there are only two possible outcomes).
+					The goal of logistic regression is to find the best fitting model to describe the relationship between the dichotomous characteristic of
+					interest (dependent variable = response or outcome variable) and a set of independent (predictor or explanatory) variables. This is better than other binary classification like nearest neighbor since it also
+					explains quantitatively the factors that lead to classification.
+					""",unsafe_allow_html=True)
+        st.info('Linear Regression for Multiclass')
+		#image
 
-        toc.header("Header 2")
+        st.subheader("**_Passive Agressive Classifier_**")
+        st.markdown("""
+				The goal is to find a hyperplane that seperates all the sentiment classes, on each round of analysing an
+				observation and makes a prediction on the current hypothesis.
+				It then compares prediction to true y and suffers a loss based on the difference.
+				The goal is to make cumulative loss as small as possible.
+				Finally, the hypothesis gets updated according to previous hypothesis and rhe current example.
+					""",unsafe_allow_html=True)
+        st.info('Passive Agressive Classifier for Binary Classes')
+		#image
 
-        for a in range(10):
-            st.write("Blabla...")
+        st.subheader("**_K Nearest Neighbours Classifier_**")
+        st.markdown("""
+				K-nearest neighbors (KNN) algorithm uses 'feature similarity' to predict the values of new
+				datapoints which further means that the new data point will be assigned a value based on how closely it
+				matches the points in the training set. An object is classified by a majority vote of its neighbors, with the object
+				being assigned to the class most common among its k nearest neighbors.
+					""",unsafe_allow_html=True)
+        st.info('K Nearest Neighbours Classifier for Multiclass')
+		#image
 
-        toc.subheader("Subheader 1")
+        st.subheader("**_Gradient Boost Classifier_**")
+        st.markdown("""
+					<p>Gradient boosting is a type of machine learning boosting. It relies on the intuition that the best possible next model,
+					when combined with previous models, minimizes the overall prediction error. The key idea is to set the target outcomes for
+					this next model in order to minimize the error.</p>
+					""",unsafe_allow_html=True)
+        st.info('Gradient Boosting Classifier for Multiclass')
+		#image
 
-        for a in range(10):
-            st.write("Blabla...")
 
-        toc.subheader("Subheader 2")
 
-        for a in range(10):
-            st.write("Blabla...")
 
-        toc.generate()
 
     # Our products and services pages
     if selection == "Our Products and Services":
         st.image("https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/products_services.png",
                   use_column_width= True)
+
+        st.header("Our Products")
+        st.markdown("""
+                        - Natural Language Process
+                        - Regression and Classifications Modeling
+                        - Database Design
+                        - Intelligent Dash-boarding
+                        - Regression
+                    """)
+        st.header("Contact Us")
+        st.markdown("If you wish to contact us please enter your message along with your contact details and we will get back to as soon as possible")
+        st.text_area("Enter a message")
+        #st.button("Submit")
+        def func():
+            st.write('Submitted Thank You')
+            return
+        if st.button("Submitted"):
+            func()
 
 
     # About the Authors
@@ -1394,6 +1480,7 @@ def main():
         st.markdown(""" Risk taker: "Rather an opps than a what if"
 
                     **Background:**
+                            - Bcom Honours in Economics
                     """)
 
         st.header("Nkululeko Mthembu")
@@ -1403,6 +1490,7 @@ def main():
                     "Recommended by 9 out of 10 people who recommend things"
 
                     **Background:**
+                            - A marketing enthusist with brand management background
                     """)
 
 
@@ -1413,15 +1501,33 @@ def main():
                     "I am so cool even ice cubes are so jealous of me"
 
                     **Background:**
+                            - National Diploma in IT
+                            - Junior analyst background
                     """)
 
         st.header("Suvarna Chetty")
         st.image("https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/IMG_20190627_102247%5B1%5D.jpg",
                   use_column_width= True)
+        st.markdown("""
+                    “I am ambitious and driven. I thrive on challenge and constantly set goals for myself, so I have something to strive toward. I’m not comfortable with settling,
+                    and I’m always looking for an opportunity to do better and achieve greatness.
+
+                    **Background:**
+
+                        - Studied Bachelor of Accounting at the University of Witswatersrand.
+                        - Working for Savris Trading CC: Gained experience in many diverse roles
+                                                         and positions
+                    """)
 
         st.header("Ntokoza Nkanyane")
         st.image("https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/Ntokozo.PNG",
                   use_column_width= True)
+        st.markdown(""" Risk taker: "Rather an opps than a what if"
+
+                    **Background:**
+                            - Studied accounting through UNISA
+                            - Co-founded Bokamos Agro-processin: Produces animal feed
+                    """)
 
 
 
