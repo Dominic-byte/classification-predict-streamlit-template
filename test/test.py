@@ -10,6 +10,7 @@ from typing import List, Tuple
 # Inspecting
 import numpy as np
 import pandas as pd
+<<<<<<< HEAD
 from time import time
 import re
 import string
@@ -17,6 +18,15 @@ import os
 import emoji
 from pprint import pprint
 import collections
+=======
+# from time import time
+# import re
+# import string
+# import os
+# import emoji
+# from pprint import pprint
+# import collections
+>>>>>>> parent of 6c73ace... please
 
 # visualisation
 import matplotlib.pyplot as plt
