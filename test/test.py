@@ -28,7 +28,7 @@ import pandas as pd
 # from time import time
 # import re
 # import string
-import os
+# import os
 # import emoji
 # from pprint import pprint
 # import collections
@@ -58,8 +58,8 @@ sp = spacy.load('en_core_web_sm')
 
 ### Loading the data
 # Vectorizer
-news_vectorizer = open("resources/vector_tfidf.pkl","rb")
-tweet_cv = joblib.load(news_vectorizer) # loading your vectorizer from the pkl file
+#news_vectorizer = open("resources/tfidfvect.pkl","rb")
+#tweet_cv = joblib.load(news_vectorizer) # loading your vectorizer from the pkl file
 
 # Load your raw data
 #raw = pd.read_csv("https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/resources/train.csv")
@@ -1211,7 +1211,7 @@ def main():
             vect_text = tweet_cv.transform([tweet_text]).toarray()
 			# Load your .pkl file with the model of your choice + make predictions
 			# Try loading in multiple models to give the user a choice
-            prediction = joblib.load(open(os.path.join("resources/LinearSVC_model.pkl"),"rb"))
+            prediction = joblib.load(open(os.path.join("test/resources/LinearSVC_model.pkl"),"rb"))
             prediction = predictor.predict(vect_text)
 
 			# When model has successfully run, will print prediction
@@ -1230,7 +1230,7 @@ def main():
             vect_text = tweet_cv.transform([tweet_text]).toarray()
 			# Load your .pkl file with the model of your choice + make predictions
 			# Try loading in multiple models to give the user a choice
-            predictor = joblib.load(open(os.path.join("resources/LogisticRegression_model.pkl"),"rb"))
+            predictor = joblib.load(open(os.path.join("test/resources/LogisticRegression_model.pkl"),"rb"))
             prediction = predictor.predict(vect_text)
 
 			# When model has successfully run, will print prediction
@@ -1249,7 +1249,7 @@ def main():
             vect_text = tweet_cv.transform([tweet_text]).toarray()
 			# Load your .pkl file with the model of your choice + make predictions
 			# Try loading in multiple models to give the user a choice
-            predictor = joblib.load(open(os.path.join("resources/KNeighborsClassifier_model.pkl"),"rb"))
+            predictor = joblib.load(open(os.path.join("test/resources/KNeighborsClassifier_model.pkl"),"rb"))
             prediction = predictor.predict(vect_text)
 
 			# When model has successfully run, will print prediction
@@ -1269,7 +1269,7 @@ def main():
             vect_text = tweet_cv.transform([tweet_text]).toarray()
 			# Load your .pkl file with the model of your choice + make predictions
 			# Try loading in multiple models to give the user a choice
-            predictor = joblib.load(open(os.path.join("resources/PassiveAggressiveClassifier_model.pkl"),"rb"))
+            predictor = joblib.load(open(os.path.join("test/resources/PassiveAggressiveClassifier_model.pkl"),"rb"))
             prediction = predictor.predict(vect_text)
 
 			# When model has successfully run, will print prediction
@@ -1288,7 +1288,7 @@ def main():
             vect_text = tweet_cv.transform([tweet_text]).toarray()
 			# Load your .pkl file with the model of your choice + make predictions
 			# Try loading in multiple models to give the user a choice
-            predictor = joblib.load(open(os.path.join("resources/GradientBoostingClassifier_model.pkl"),"rb"))
+            predictor = joblib.load(open(os.path.join("test/resources/GradientBoostingClassifier_model.pkl"),"rb"))
             prediction = predictor.predict(vect_text)
 
 			# When model has successfully run, will print prediction
