@@ -1198,284 +1198,284 @@ def main():
 
 
     # Models
-    # if selection == "Models":
-    #     st.image("https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/Predictivemodel.png",
-    #               use_column_width= True)
+    if selection == "Models":
+        st.image("https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/Predictivemodel.png",
+                  use_column_width= True)
 
-    #     st.info("Prediction with ML Models")
-    #     # Creating a text box for user input
-    #     tweet_text = st.text_area("Enter Text","Type Here")
+        st.info("Prediction with ML Models")
+        # Creating a text box for user input
+        tweet_text = st.text_area("Enter Text","Type Here")
 
-    #     if st.button("Classifier: LinearSVC"):
-    #         # Transforming user input with vectorizer
-    #         vect_text = tweet_cv.transform([tweet_text]).toarray()
-	# 		# Load your .pkl file with the model of your choice + make predictions
-	# 		# Try loading in multiple models to give the user a choice
-    #         prediction = joblib.load(open(os.path.join("resources/LinearSVC_model.pkl"),"rb"))
-    #         prediction = predictor.predict(vect_text)
+        if st.button("Classifier: LinearSVC"):
+            # Transforming user input with vectorizer
+            vect_text = tweet_cv.transform([tweet_text]).toarray()
+			# Load your .pkl file with the model of your choice + make predictions
+			# Try loading in multiple models to give the user a choice
+            prediction = joblib.load(open(os.path.join("resources/LinearSVC_model.pkl"),"rb"))
+            prediction = predictor.predict(vect_text)
 
-	# 		# When model has successfully run, will print prediction
-	# 		# You can use a dictionary or similar structure to make this output
-    #         if prediction == 2:
-    #             st.success('Sentiment prediction: 2 (Very Postive Sentiment)')
-    #         if prediction == 1:
-    #             st.success('Sentiment prediction: 1 (Postive Sentiment)')
-    #         if prediction == 0:
-    #             st.success('Sentiment prediction: 0 (Neutral Sentiment)')
-    #         if prediction == -1:
-    #             st.success('Sentiment prediction: -1 (Negative Sentiment)')
+			# When model has successfully run, will print prediction
+			# You can use a dictionary or similar structure to make this output
+            if prediction == 2:
+                st.success('Sentiment prediction: 2 (Very Postive Sentiment)')
+            if prediction == 1:
+                st.success('Sentiment prediction: 1 (Postive Sentiment)')
+            if prediction == 0:
+                st.success('Sentiment prediction: 0 (Neutral Sentiment)')
+            if prediction == -1:
+                st.success('Sentiment prediction: -1 (Negative Sentiment)')
 
-    #     if st.button("Classifier: LogisticRegression"):
-	# 		# Transforming user input with vectorizer
-    #         vect_text = tweet_cv.transform([tweet_text]).toarray()
-	# 		# Load your .pkl file with the model of your choice + make predictions
-	# 		# Try loading in multiple models to give the user a choice
-    #         predictor = joblib.load(open(os.path.join("resources/LogisticRegression_model.pkl"),"rb"))
-    #         prediction = predictor.predict(vect_text)
+        if st.button("Classifier: LogisticRegression"):
+			# Transforming user input with vectorizer
+            vect_text = tweet_cv.transform([tweet_text]).toarray()
+			# Load your .pkl file with the model of your choice + make predictions
+			# Try loading in multiple models to give the user a choice
+            predictor = joblib.load(open(os.path.join("resources/LogisticRegression_model.pkl"),"rb"))
+            prediction = predictor.predict(vect_text)
 
-	# 		# When model has successfully run, will print prediction
-	# 		# You can use a dictionary or similar structure to make this output
-    #         if prediction == 2:
-    #             st.success('Sentiment prediction: 2 (Very Postive Sentiment)')
-    #         if prediction == 1:
-    #             st.success('Sentiment prediction: 1 (Postive Sentiment)')
-    #         if prediction == 0:
-    #             st.success('Sentiment prediction: 0 (Neutral Sentiment)')
-    #         if prediction == -1:
-    #             st.success('Sentiment prediction: -1 (Negative Sentiment)')
+			# When model has successfully run, will print prediction
+			# You can use a dictionary or similar structure to make this output
+            if prediction == 2:
+                st.success('Sentiment prediction: 2 (Very Postive Sentiment)')
+            if prediction == 1:
+                st.success('Sentiment prediction: 1 (Postive Sentiment)')
+            if prediction == 0:
+                st.success('Sentiment prediction: 0 (Neutral Sentiment)')
+            if prediction == -1:
+                st.success('Sentiment prediction: -1 (Negative Sentiment)')
 
-    #     if st.button("Classifier: KNeighborsClassifier"):
-	# 		# Transforming user input with vectorizer
-    #         vect_text = tweet_cv.transform([tweet_text]).toarray()
-	# 		# Load your .pkl file with the model of your choice + make predictions
-	# 		# Try loading in multiple models to give the user a choice
-    #         predictor = joblib.load(open(os.path.join("resources/KNeighborsClassifier_model.pkl"),"rb"))
-    #         prediction = predictor.predict(vect_text)
+        if st.button("Classifier: KNeighborsClassifier"):
+			# Transforming user input with vectorizer
+            vect_text = tweet_cv.transform([tweet_text]).toarray()
+			# Load your .pkl file with the model of your choice + make predictions
+			# Try loading in multiple models to give the user a choice
+            predictor = joblib.load(open(os.path.join("resources/KNeighborsClassifier_model.pkl"),"rb"))
+            prediction = predictor.predict(vect_text)
 
-	# 		# When model has successfully run, will print prediction
-	# 		# You can use a dictionary or similar structure to make this output
-    #         if prediction == 2:
-    #             st.success('Sentiment prediction: 2 (Very Postive Sentiment)')
-    #         if prediction == 1:
-    #             st.success('Sentiment prediction: 1 (Postive Sentiment)')
-    #         if prediction == 0:
-    #             st.success('Sentiment prediction: 0 (Neutral Sentiment)')
-    #         if prediction == -1:
-    #             st.success('Sentiment prediction: -1 (Negative Sentiment)')
-
-
-    #     if st.button("Classifier: PassiveAggressiveClassifier"):
-	# 		# Transforming user input with vectorizer
-    #         vect_text = tweet_cv.transform([tweet_text]).toarray()
-	# 		# Load your .pkl file with the model of your choice + make predictions
-	# 		# Try loading in multiple models to give the user a choice
-    #         predictor = joblib.load(open(os.path.join("resources/PassiveAggressiveClassifier_model.pkl"),"rb"))
-    #         prediction = predictor.predict(vect_text)
-
-	# 		# When model has successfully run, will print prediction
-	# 		# You can use a dictionary or similar structure to make this output
-    #         if prediction == 2:
-    #             st.success('Sentiment prediction: 2 (Very Postive Sentiment)')
-    #         if prediction == 1:
-    #             st.success('Sentiment prediction: 1 (Postive Sentiment)')
-    #         if prediction == 0:
-    #             st.success('Sentiment prediction: 0 (Neutral Sentiment)')
-    #         if prediction == -1:
-    #             st.success('Sentiment prediction: -1 (Negative Sentiment)')
-
-    #     if st.button("Classifier: GradientBoostingClassifier"):
-	# 		# Transforming user input with vectorizer
-    #         vect_text = tweet_cv.transform([tweet_text]).toarray()
-	# 		# Load your .pkl file with the model of your choice + make predictions
-	# 		# Try loading in multiple models to give the user a choice
-    #         predictor = joblib.load(open(os.path.join("resources/GradientBoostingClassifier_model.pkl"),"rb"))
-    #         prediction = predictor.predict(vect_text)
-
-	# 		# When model has successfully run, will print prediction
-	# 		# You can use a dictionary or similar structure to make this output
-    #         if prediction == 2:
-    #             st.success('Sentiment prediction: 2 (Very Postive Sentiment)')
-    #         if prediction == 1:
-    #             st.success('Sentiment prediction: 1 (Postive Sentiment)')
-    #         if prediction == 0:
-    #             st.success('Sentiment prediction: 0 (Neutral Sentiment)')
-    #         if prediction == -1:
-    #             st.success('Sentiment prediction: -1 (Negative Sentiment)')
-
-    #     st.subheader("**_Linear Support Vector Classifier_**")
-    #     st.markdown("""
-	# 			A Support Vector Machine (SVM) is a discriminative classifier formally defined by a separating hyperplane. In other words, given labeled training data (supervised learning),
-	# 			the algorithm outputs an optimal hyperplane which categorizes new examples.
-	# 			Since it is a linear svc the hyperplane will be predicting each class with a linear kernal.
-	# 			It is vary similar to SVC with kernal = 'linear' and the multiclass support is handled according to a one-vs-the-rest scheme.</p>
-	# 				""",unsafe_allow_html=True)
-    #     st.info('Linear SVC for Multiclass')
-	# 	#image
-    #     st.subheader("**_Logistic Regression Classifier_**")
-    #     st.markdown("""
-	# 				It is a statistical method for analysing a data set in which there are one or more independent variables that determine an outcome.
-	# 				The outcome is measured with a dichotomous variable (in which there are only two possible outcomes).
-	# 				The goal of logistic regression is to find the best fitting model to describe the relationship between the dichotomous characteristic of
-	# 				interest (dependent variable = response or outcome variable) and a set of independent (predictor or explanatory) variables. This is better than other binary classification like nearest neighbor since it also
-	# 				explains quantitatively the factors that lead to classification.
-	# 				""",unsafe_allow_html=True)
-    #     st.info('Linear Regression for Multiclass')
-	# 	#image
-
-    #     st.subheader("**_Passive Agressive Classifier_**")
-    #     st.markdown("""
-	# 			The goal is to find a hyperplane that seperates all the sentiment classes, on each round of analysing an
-	# 			observation and makes a prediction on the current hypothesis.
-	# 			It then compares prediction to true y and suffers a loss based on the difference.
-	# 			The goal is to make cumulative loss as small as possible.
-	# 			Finally, the hypothesis gets updated according to previous hypothesis and rhe current example.
-	# 				""",unsafe_allow_html=True)
-    #     st.info('Passive Agressive Classifier for Binary Classes')
-	# 	#image
-
-    #     st.subheader("**_K Nearest Neighbours Classifier_**")
-    #     st.markdown("""
-	# 			K-nearest neighbors (KNN) algorithm uses 'feature similarity' to predict the values of new
-	# 			datapoints which further means that the new data point will be assigned a value based on how closely it
-	# 			matches the points in the training set. An object is classified by a majority vote of its neighbors, with the object
-	# 			being assigned to the class most common among its k nearest neighbors.
-	# 				""",unsafe_allow_html=True)
-    #     st.info('K Nearest Neighbours Classifier for Multiclass')
-	# 	#image
-
-    #     st.subheader("**_Gradient Boost Classifier_**")
-    #     st.markdown("""
-	# 				<p>Gradient boosting is a type of machine learning boosting. It relies on the intuition that the best possible next model,
-	# 				when combined with previous models, minimizes the overall prediction error. The key idea is to set the target outcomes for
-	# 				this next model in order to minimize the error.</p>
-	# 				""",unsafe_allow_html=True)
-    #     st.info('Gradient Boosting Classifier for Multiclass')
-	# 	#image
+			# When model has successfully run, will print prediction
+			# You can use a dictionary or similar structure to make this output
+            if prediction == 2:
+                st.success('Sentiment prediction: 2 (Very Postive Sentiment)')
+            if prediction == 1:
+                st.success('Sentiment prediction: 1 (Postive Sentiment)')
+            if prediction == 0:
+                st.success('Sentiment prediction: 0 (Neutral Sentiment)')
+            if prediction == -1:
+                st.success('Sentiment prediction: -1 (Negative Sentiment)')
 
 
+        if st.button("Classifier: PassiveAggressiveClassifier"):
+			# Transforming user input with vectorizer
+            vect_text = tweet_cv.transform([tweet_text]).toarray()
+			# Load your .pkl file with the model of your choice + make predictions
+			# Try loading in multiple models to give the user a choice
+            predictor = joblib.load(open(os.path.join("resources/PassiveAggressiveClassifier_model.pkl"),"rb"))
+            prediction = predictor.predict(vect_text)
+
+			# When model has successfully run, will print prediction
+			# You can use a dictionary or similar structure to make this output
+            if prediction == 2:
+                st.success('Sentiment prediction: 2 (Very Postive Sentiment)')
+            if prediction == 1:
+                st.success('Sentiment prediction: 1 (Postive Sentiment)')
+            if prediction == 0:
+                st.success('Sentiment prediction: 0 (Neutral Sentiment)')
+            if prediction == -1:
+                st.success('Sentiment prediction: -1 (Negative Sentiment)')
+
+        if st.button("Classifier: GradientBoostingClassifier"):
+			# Transforming user input with vectorizer
+            vect_text = tweet_cv.transform([tweet_text]).toarray()
+			# Load your .pkl file with the model of your choice + make predictions
+			# Try loading in multiple models to give the user a choice
+            predictor = joblib.load(open(os.path.join("resources/GradientBoostingClassifier_model.pkl"),"rb"))
+            prediction = predictor.predict(vect_text)
+
+			# When model has successfully run, will print prediction
+			# You can use a dictionary or similar structure to make this output
+            if prediction == 2:
+                st.success('Sentiment prediction: 2 (Very Postive Sentiment)')
+            if prediction == 1:
+                st.success('Sentiment prediction: 1 (Postive Sentiment)')
+            if prediction == 0:
+                st.success('Sentiment prediction: 0 (Neutral Sentiment)')
+            if prediction == -1:
+                st.success('Sentiment prediction: -1 (Negative Sentiment)')
+
+        st.subheader("**_Linear Support Vector Classifier_**")
+        st.markdown("""
+				A Support Vector Machine (SVM) is a discriminative classifier formally defined by a separating hyperplane. In other words, given labeled training data (supervised learning),
+				the algorithm outputs an optimal hyperplane which categorizes new examples.
+				Since it is a linear svc the hyperplane will be predicting each class with a linear kernal.
+				It is vary similar to SVC with kernal = 'linear' and the multiclass support is handled according to a one-vs-the-rest scheme.</p>
+					""",unsafe_allow_html=True)
+        st.info('Linear SVC for Multiclass')
+		#image
+        st.subheader("**_Logistic Regression Classifier_**")
+        st.markdown("""
+					It is a statistical method for analysing a data set in which there are one or more independent variables that determine an outcome.
+					The outcome is measured with a dichotomous variable (in which there are only two possible outcomes).
+					The goal of logistic regression is to find the best fitting model to describe the relationship between the dichotomous characteristic of
+					interest (dependent variable = response or outcome variable) and a set of independent (predictor or explanatory) variables. This is better than other binary classification like nearest neighbor since it also
+					explains quantitatively the factors that lead to classification.
+					""",unsafe_allow_html=True)
+        st.info('Linear Regression for Multiclass')
+		#image
+
+        st.subheader("**_Passive Agressive Classifier_**")
+        st.markdown("""
+				The goal is to find a hyperplane that seperates all the sentiment classes, on each round of analysing an
+				observation and makes a prediction on the current hypothesis.
+				It then compares prediction to true y and suffers a loss based on the difference.
+				The goal is to make cumulative loss as small as possible.
+				Finally, the hypothesis gets updated according to previous hypothesis and rhe current example.
+					""",unsafe_allow_html=True)
+        st.info('Passive Agressive Classifier for Binary Classes')
+		#image
+
+        st.subheader("**_K Nearest Neighbours Classifier_**")
+        st.markdown("""
+				K-nearest neighbors (KNN) algorithm uses 'feature similarity' to predict the values of new
+				datapoints which further means that the new data point will be assigned a value based on how closely it
+				matches the points in the training set. An object is classified by a majority vote of its neighbors, with the object
+				being assigned to the class most common among its k nearest neighbors.
+					""",unsafe_allow_html=True)
+        st.info('K Nearest Neighbours Classifier for Multiclass')
+		#image
+
+        st.subheader("**_Gradient Boost Classifier_**")
+        st.markdown("""
+					<p>Gradient boosting is a type of machine learning boosting. It relies on the intuition that the best possible next model,
+					when combined with previous models, minimizes the overall prediction error. The key idea is to set the target outcomes for
+					this next model in order to minimize the error.</p>
+					""",unsafe_allow_html=True)
+        st.info('Gradient Boosting Classifier for Multiclass')
+		#image
 
 
 
-    # # Our products and services pages
-    # if selection == "Our Products and Services":
-    #     st.image("https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/products_services.png",
-    #               use_column_width= True)
-
-    #     st.header("Our Products")
-    #     st.markdown("""
-    #                     - Natural Language Process
-    #                     - Regression and Classifications Modeling
-    #                     - Database Design
-    #                     - Intelligent Dash-boarding
-    #                     - Regression
-    #                 """)
-    #     st.header("Contact Us")
-    #     st.markdown("If you wish to contact us please enter your message along with your contact details and we will get back to as soon as possible")
-    #     st.text_area("Enter a message")
-    #     #st.button("Submit")
-    #     def func():
-    #         st.write('Submitted Thank You')
-    #         return
-    #     if st.button("Submitted"):
-    #         func()
 
 
-    # # About the Authors
-    # if selection == "About Us":
-    #     st.image("https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/Aboutus%20(2).png",
-    #               use_column_width= True)
-    #     st.title("OUR STORY")
-    #     st.markdown("""
-    #                 The Three Musketeers started in the Summer of 2019.
-    #                 A group of individuals came together with the same vision:
-    #                 **_Raise awareness for climate change within the way inviduals conduct business_**
-    #                 A concept now brought to perfection by The Three Musketeers collective of creators.
+    # Our products and services pages
+    if selection == "Our Products and Services":
+        st.image("https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/products_services.png",
+                  use_column_width= True)
 
-    #                 Today, The Three Musketeers are helping businesses in determining consumer sentiment with regards to climate change. With these insights businesses will be able
-    #                 to tailor the products and services to consumer satisfaction.
-
-    #                 The Three Musketeers features a variety of models that businesses and consumers can make use of, using a broad spectrum of data preprocessing techniques and
-    #                 hypertuning parameters.
-
-    #                 Simply put: There's a model for every business, mindset and style.
-    #                 """)
-
-    #     st.title("MEET THE TEAM")
-
-    #     st.header("Dominic Christopher Sadie")
-    #     st.image("https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/IMG-20200628-WA0008%5B1%5D.jpg",
-    #              use_column_width= True)
-    #     st.markdown("""
-    #                 "I am a committed individual, who is constantly eager to learn. One of my strengths is my adaptability; I can develop new skills through self-study,
-    #                 practice and learning from my team members."
-
-    #                 **Background:**
-
-    #                     - Studied electrical engineering at the University of Johannesburg.
-    #                     - Volunteered with engineers without borders in Brazil: Helped implement solar panels
-    #                                                                             in two schools.
-    #                     - Worked as an intern at City Power: Learned how to manage asset.
-    #                 """)
-
-    #     st.header("Keamogetswe Makete")
-    #     st.image("https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/IMG-20200626-WA0016%5B1%5D.jpg",
-    #               use_column_width= True)
-    #     st.markdown(""" Risk taker: "Rather an opps than a what if"
-
-    #                 **Background:**
+        st.header("Our Products")
+        st.markdown("""
+                        - Natural Language Process
+                        - Regression and Classifications Modeling
+                        - Database Design
+                        - Intelligent Dash-boarding
+                        - Regression
+                    """)
+        st.header("Contact Us")
+        st.markdown("If you wish to contact us please enter your message along with your contact details and we will get back to as soon as possible")
+        st.text_area("Enter a message")
+        #st.button("Submit")
+        def func():
+            st.write('Submitted Thank You')
+            return
+        if st.button("Submitted"):
+            func()
 
 
-    #                         - Bcom Honours in Economics
-    #                 """)
+    # About the Authors
+    if selection == "About Us":
+        st.image("https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/Aboutus%20(2).png",
+                  use_column_width= True)
+        st.title("OUR STORY")
+        st.markdown("""
+                    The Three Musketeers started in the Summer of 2019.
+                    A group of individuals came together with the same vision:
+                    **_Raise awareness for climate change within the way inviduals conduct business_**
+                    A concept now brought to perfection by The Three Musketeers collective of creators.
 
-    #     st.header("Nkululeko Mthembu")
-    #     st.image("https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/IMG-20200628-WA0013%5B1%5D.jpg",
-    #               use_column_width= True)
-    #     st.markdown("""
-    #                 "Recommended by 9 out of 10 people who recommend things"
+                    Today, The Three Musketeers are helping businesses in determining consumer sentiment with regards to climate change. With these insights businesses will be able
+                    to tailor the products and services to consumer satisfaction.
 
-    #                 **Background:**
+                    The Three Musketeers features a variety of models that businesses and consumers can make use of, using a broad spectrum of data preprocessing techniques and
+                    hypertuning parameters.
 
-    #                         - A marketing enthusist with brand management background
-    #                 """)
+                    Simply put: There's a model for every business, mindset and style.
+                    """)
+
+        st.title("MEET THE TEAM")
+
+        st.header("Dominic Christopher Sadie")
+        st.image("https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/IMG-20200628-WA0008%5B1%5D.jpg",
+                 use_column_width= True)
+        st.markdown("""
+                    "I am a committed individual, who is constantly eager to learn. One of my strengths is my adaptability; I can develop new skills through self-study,
+                    practice and learning from my team members."
+
+                    **Background:**
+
+                        - Studied electrical engineering at the University of Johannesburg.
+                        - Volunteered with engineers without borders in Brazil: Helped implement solar panels
+                                                                                in two schools.
+                        - Worked as an intern at City Power: Learned how to manage asset.
+                    """)
+
+        st.header("Keamogetswe Makete")
+        st.image("https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/IMG-20200626-WA0016%5B1%5D.jpg",
+                  use_column_width= True)
+        st.markdown(""" Risk taker: "Rather an opps than a what if"
+
+                    **Background:**
 
 
-    #     st.header("Rolivhuwa Malise")
-    #     st.image("https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/IMG-20200628-WA0012%5B1%5D.jpg",
-    #               use_column_width= True)
-    #     st.markdown("""
-    #                 "I am so cool even ice cubes are so jealous of me"
+                            - Bcom Honours in Economics
+                    """)
 
-    #                 **Background:**
+        st.header("Nkululeko Mthembu")
+        st.image("https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/IMG-20200628-WA0013%5B1%5D.jpg",
+                  use_column_width= True)
+        st.markdown("""
+                    "Recommended by 9 out of 10 people who recommend things"
 
-    #                         - National Diploma in IT
-    #                         - Junior analyst background
-    #                 """)
+                    **Background:**
 
-    #     st.header("Suvarna Chetty")
-    #     st.image("https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/IMG_20190627_102247%5B1%5D.jpg",
-    #               use_column_width= True)
-    #     st.markdown("""
-    #                 “I am ambitious and driven. I thrive on challenge and constantly set goals for myself, so I have something to strive toward. I’m not comfortable with settling,
-    #                 and I’m always looking for an opportunity to do better and achieve greatness."
+                            - A marketing enthusist with brand management background
+                    """)
 
-    #                 **Background:**
 
-    #                     - Studied Bachelor of Accounting at the University of Witswatersrand.
-    #                     - Working for Savris Trading CC: Gained experience in many diverse roles
-    #                                                      and positions
-    #                 """)
+        st.header("Rolivhuwa Malise")
+        st.image("https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/IMG-20200628-WA0012%5B1%5D.jpg",
+                  use_column_width= True)
+        st.markdown("""
+                    "I am so cool even ice cubes are so jealous of me"
 
-    #     st.header("Ntokoza Nkanyane")
-    #     st.image("https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/Ntokozo.PNG",
-    #               use_column_width= True)
-    #     st.markdown(""" Risk taker: "Rather an opps than a what if"
+                    **Background:**
 
-    #                 **Background:**
+                            - National Diploma in IT
+                            - Junior analyst background
+                    """)
 
-    #                         - Studied accounting through UNISA
-    #                         - Co-founded Bokamos Agro-processin: Produces animal feed
-    #                 """)
+        st.header("Suvarna Chetty")
+        st.image("https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/IMG_20190627_102247%5B1%5D.jpg",
+                  use_column_width= True)
+        st.markdown("""
+                    “I am ambitious and driven. I thrive on challenge and constantly set goals for myself, so I have something to strive toward. I’m not comfortable with settling,
+                    and I’m always looking for an opportunity to do better and achieve greatness."
+
+                    **Background:**
+
+                        - Studied Bachelor of Accounting at the University of Witswatersrand.
+                        - Working for Savris Trading CC: Gained experience in many diverse roles
+                                                         and positions
+                    """)
+
+        st.header("Ntokoza Nkanyane")
+        st.image("https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/Ntokozo.PNG",
+                  use_column_width= True)
+        st.markdown(""" Risk taker: "Rather an opps than a what if"
+
+                    **Background:**
+
+                            - Studied accounting through UNISA
+                            - Co-founded Bokamos Agro-processin: Produces animal feed
+                    """)
 
 
 
