@@ -19,6 +19,9 @@ import pandas as pd
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of e7d7687... Trying to get app running
 =======
 >>>>>>> parent of e7d7687... Trying to get app running
 =======
@@ -50,6 +53,7 @@ import collections
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 # from time import time
 # import re
@@ -59,6 +63,8 @@ import collections
 # from pprint import pprint
 # import collections
 >>>>>>> parent of 6c73ace... please
+=======
+>>>>>>> parent of e7d7687... Trying to get app running
 =======
 >>>>>>> parent of e7d7687... Trying to get app running
 =======
@@ -110,6 +116,9 @@ sp = spacy.load('en')
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of e7d7687... Trying to get app running
+=======
 >>>>>>> parent of e7d7687... Trying to get app running
 =======
 >>>>>>> parent of e7d7687... Trying to get app running
@@ -1104,6 +1113,7 @@ def main():
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             @st.cache(persist=True,allow_output_mutation=True)
             def figure1(df):
                 fig = sns.factorplot('sentiment',data = df, kind='count',size=6,aspect = 1.5, palette = 'PuBuGn_d')
@@ -1134,6 +1144,8 @@ def main():
 >>>>>>> parent of e7d7687... Trying to get app running
 =======
 >>>>>>> parent of e7d7687... Trying to get app running
+=======
+>>>>>>> parent of e7d7687... Trying to get app running
                         st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/WordCloud-1.PNG')
 
         if st.button('Pie Chart'):
@@ -1145,6 +1157,9 @@ def main():
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of e7d7687... Trying to get app running
+=======
 >>>>>>> parent of e7d7687... Trying to get app running
 =======
 >>>>>>> parent of e7d7687... Trying to get app running
@@ -1345,6 +1360,7 @@ def main():
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             @st.cache(persist=True,allow_output_mutation=True)
             def hashtag1(lst):
                 a = nltk.FreqDist(lst)
@@ -1409,6 +1425,8 @@ def main():
 >>>>>>> parent of e7d7687... Trying to get app running
 =======
 >>>>>>> parent of e7d7687... Trying to get app running
+=======
+>>>>>>> parent of e7d7687... Trying to get app running
                         st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/WordCloud-1.PNG')
 
         if st.button("Sentiment 1"):
@@ -1427,6 +1445,9 @@ def main():
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of e7d7687... Trying to get app running
+=======
 >>>>>>> parent of e7d7687... Trying to get app running
 =======
 >>>>>>> parent of e7d7687... Trying to get app running
