@@ -54,12 +54,7 @@ from nltk import PorterStemmer
 #from nltk.stem import WordNetLemmatizer
 #from nltk.probability import FreqDist
 import spacy
-<<<<<<< HEAD
 sp = spacy.load('en_core_web_sm')
-=======
-import en_core_web_sm
-sp = en_core_web_sm.load()
->>>>>>> parent of 97b77a2... Updated spacy
 
 ### Loading the data
 # Vectorizer
