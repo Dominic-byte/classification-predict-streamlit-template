@@ -85,8 +85,8 @@ def main():
         st.sidebar.info("""
                     This web application is maintained by Three Musketeers. You can learn more about us on the **About Us** tab.
                     """)
-                    
-                    
+
+
         st.sidebar.image("https://i.pinimg.com/originals/5c/99/6a/5c996a625282d852811eac0ee9e81fbe.jpg",
                           use_column_width= True)
 
@@ -469,7 +469,7 @@ def main():
                     """)
 
         toc1.generate()
-       
+
     # Machine Learning Page
     if selection == "Machine Learning":
         st.image("https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/MachineLearning.png",
@@ -809,34 +809,27 @@ def main():
 
 
         toc2.generate()
-        
-        
+
+
     # Data Exploration
     if selection == "Data Exploration":
         st.image("https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/dataexploration.png",
                   use_column_width= True)
+        my_dataset = "https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/resources/train.csv"
 
-         # EDA
-         my_dataset = "https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/resources/train.csv"
+        st.subheader("**_Lemmetization and Stemming_**")
+        st.markdown('''Type in words with a space inbetween and the two methods will return the route word''')
+        st.info("Predict Lemmetization and  Stemming of your own words")
+        tweet_text_ls = st.text_area("Enter Text","Type Here")
 
-         #Lemmetization and Stemming
-         st.subheader("**_Lemmetization and Stemming_**")
-         st.markdown('''Type in words with a space inbetween and the two methods will return the route word''')
-         st.info("Predict Lemmetization and  Stemming of your own words")
-		     #Creating a text box for user input
-         tweet_text_ls = st.text_area("Enter Text","Type Here")
-
-         #Lemmetization Predictor
-         if st.button('Lemmetization'):
+        if st.button('Lemmetization'):
              text = sp(tweet_text_ls)
              pred_l = []
              for word in text:
                  pred_l.append('Lemma for '+str(word)+' is '+str(word.lemma_))
              for p in pred_l:
                  st.success("{}".format(p))
-
-         #Stemming Predictor
-         if st.button('Stemming'):
+        if st.button('Stemming'):
              stemmer = PorterStemmer()
              tokenizer = nltk.word_tokenize(tweet_text_ls)
              pred_l = []
@@ -844,22 +837,15 @@ def main():
                  pred_l.append('Stem for '+token+' is '+stemmer.stem(token))
              for p in pred_l:
                  st.success("{}".format(p))
-
-         #Info
-         st.subheader("**_Original Tweets_**")
-         st.info('View Original Data Set')
-
-         # To Improve speed and cache data
-         @st.cache(persist=True,allow_output_mutation=True)
-         def explore_data(dataset):
+        st.subheader("**_Original Tweets_**")
+        st.info('View Original Data Set')
+        @st.cache(persist=True,allow_output_mutation=True)
+        def explore_data(dataset):
              df = pd.read_csv(os.path.join(dataset))
              return df
+        data = explore_data(my_dataset)
 
-         # Our Dataset
-         data = explore_data(my_dataset)
-
-         # Show raw Dataset
-         if st.checkbox("Preview DataFrame"):
+        if st.checkbox("Preview DataFrame"):
 
              if st.button("Head"):
                  st.write(data.head())
@@ -867,30 +853,20 @@ def main():
                  st.write(data.tail())
              else:
                  st.write(data.head(2))
-
-         # Show Entire Dataframe
-         if st.checkbox("Show All DataFrame"):
+        if st.checkbox("Show All DataFrame"):
              st.dataframe(data)
 
-         #Define Dataframe for pie chart plot
-         df_pie = data.groupby('sentiment').count().reset_index()
-         df_pie['sentiment'].replace([-1,0,1,2],['negative Sentiment = -1','neutral Sentiment = 0','positve Sentiment = 1','News Sentiment = 2'],inplace =True)
-
-         #Markdown explaining the distribtion of Target
-         st.subheader("**_Distribution of Target_**")
-         st.markdown('<p><ul><li>The positive sentiment counts are significantly higher followed by news, then neutral and lastly anti.', unsafe_allow_html=True)
-
-         #Show distribution of target variable
-         st.info('View Distribution of Sentiment')
-         if st.button('Bar Plot'):
+        df_pie = data.groupby('sentiment').count().reset_index()
+        df_pie['sentiment'].replace([-1,0,1,2],['negative Sentiment = -1','neutral Sentiment = 0','positve Sentiment = 1','News Sentiment = 2'],inplace =True)
+        st.subheader("**_Distribution of Target_**")
+        st.markdown('<p><ul><li>The positive sentiment counts are significantly higher followed by news, then neutral and lastly anti.', unsafe_allow_html=True)
+        st.info('View Distribution of Sentiment')
+        if st.button('Bar Plot'):
                          st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/TargetVaraible.PNG')
-
-         if st.button('Pie Chart'):
+        if st.button('Pie Chart'):
                          st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/Pie%20Chart.PNG')
-
-         #markdown to explain the clean data
-         st.subheader("**_Clean Tweets_**")
-         st.markdown("""
+        st.subheader("**_Clean Tweets_**")
+        st.markdown("""
 		 			<p><ul><li> Firslt, the cleaning of the data followed a process of using <a href="https://docs.python.org/3/howto/regex.html" target="_blank">Regex</a> to remove capital words,
 		 			replace urls, replace emojis, remove digits only keep certain characters within the text. For more information,
 		 			you may look at the following link <a href="https://towardsdatascience.com/sentiment-analysis-with-text-mining-13dd2b33de27l" target="_blank">Sentiment Analysis</a></li>
@@ -901,26 +877,26 @@ def main():
 		 			""",unsafe_allow_html=True)
 
          #Cleaning of text before tokenisation, stemming and removal of stop words
-         clean_train_df = pd.read_csv("https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/resources/Clean_Train.csv")
-         clean_test_df = pd.read_csv("https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/resources/Clean_Test.csv")
+        clean_train_df = pd.read_csv("https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/resources/Clean_Train.csv")
+        clean_test_df = pd.read_csv("https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/resources/Clean_Test.csv")
 
          #Define Dataframe for more Analysis
-         EDA_df = clean_train_df[['sentiment','clean_tweet']]
+        EDA_df = clean_train_df[['sentiment','clean_tweet']]
 
          #Info
-         st.info('View Clean Data Set')
+        st.info('View Clean Data Set')
 
          #View Clean Data
-         @st.cache(persist=True)
-         def explore_data_clean(df):
+        @st.cache(persist=True)
+        def explore_data_clean(df):
              df1 = df
              return df1
 
          # Our clean Dataset
-         data_clean = explore_data_clean(EDA_df)
+        data_clean = explore_data_clean(EDA_df)
 
          # Show clean Dataset
-         if st.checkbox("Preview showing clean DataFrame"):
+        if st.checkbox("Preview showing clean DataFrame"):
 
              if st.button("Head of Clean Data"):
                  st.write(data_clean.head())
@@ -930,7 +906,7 @@ def main():
                  st.write(data_clean.head(2))
 
          # Show Entire Dataframe
-         if st.checkbox("Show All  of Clean Dataframe"):
+        if st.checkbox("Show All  of Clean Dataframe"):
              st.dataframe(data_clean)
 
          #Preper Word2Vec
@@ -984,44 +960,44 @@ def main():
 		 #Sentiment of -1
 
          #Markdown for WordCloud
-         st.subheader('**_WordCloud Plots of Clean Tweets_**')
-         st.markdown('''
+        st.subheader('**_WordCloud Plots of Clean Tweets_**')
+        st.markdown('''
 		 			<p>Plotting a <a href="https://www.geeksforgeeks.org/generating-word-cloud-python/" target="_blank">WordCloud</a> will help the common words used in a tweet. The most important analysis is understanding
 		 			sentiment and the wordcloud will show the common words used by looking at the train dataset</p>
 		 			''', unsafe_allow_html=True)
 
          #Info
-         st.info('WordClouds')
+        st.info('WordClouds')
 
-         if st.button("sentiment 2"):
+        if st.button("sentiment 2"):
              st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/WordCloud2.PNG')
-         if st.button("sentiment 1"):
+        if st.button("sentiment 1"):
              st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/WordCloud1.PNG')
-         if st.button('sentiment 0'):
+        if st.button('sentiment 0'):
              st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/WordCloud0.PNG')
-         if st.button('sentiment -1'):
+        if st.button('sentiment -1'):
              st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/WordCloud-1.PNG')
 
 		 #Create your own wordcloud
 
          #info
-         st.subheader("**_Create Your Own WordCloud_**")
-         st.markdown('''Type in in a long paragraph and see what the WordCloud generates''')
-         st.info("WordCloud Creator")
+        st.subheader("**_Create Your Own WordCloud_**")
+        st.markdown('''Type in in a long paragraph and see what the WordCloud generates''')
+        st.info("WordCloud Creator")
 
-         list_test = ['hello', 'test','testing','please']
+        list_test = ['hello', 'test','testing','please']
          # Creating a text box for user input
-         tweet_text_cloud = st.text_area("Enter Text Here","Type Text Here")
-         tweet_text_list = tweet_text_cloud.split( )
-         if len(tweet_text_list) >= 1:
+        tweet_text_cloud = st.text_area("Enter Text Here","Type Text Here")
+        tweet_text_list = tweet_text_cloud.split( )
+        if len(tweet_text_list) >= 1:
              list_test = tweet_text_list
 
          #Create WorldCloud
-         words =' '.join([text for text in list_test])
-         wordcloud = WordCloud(background_color ='white',width=1000, height=750, random_state=21, max_font_size=300).generate(words)
+        words =' '.join([text for text in list_test])
+        wordcloud = WordCloud(background_color ='white',width=1000, height=750, random_state=21, max_font_size=300).generate(words)
 
          #Show WordCloud Visually
-         if st.button("Create"):
+        if st.button("Create"):
              plt.imshow(wordcloud)
              plt.axis("off")
              st.markdown("<h1 style='text-align: center; color: black;'>Your Own WordCloud</h1>", unsafe_allow_html=True)
@@ -1029,30 +1005,30 @@ def main():
              st.pyplot()
 
          #Hashtags
-         st.subheader('**_Hashtag Plots of Clean Tweets_**')
-         st.markdown('''
+        st.subheader('**_Hashtag Plots of Clean Tweets_**')
+        st.markdown('''
 		 			<p>The hashtags were plotted per sentiment as people use '#' in tweets
 		 			before a relevant keyword or phrase in their tweets.
 		 			''', unsafe_allow_html=True)
 
          #Plotting Hashtags
          #Info
-         st.info('Hashtags')
+        st.info('Hashtags')
 
 
-         if st.button("Sentiment 2"):
+        if st.button("Sentiment 2"):
                          st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/HashSentiment2.PNG')
 
-         if st.button("Sentiment 1"):
+        if st.button("Sentiment 1"):
                          st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/Hashsent1.PNG')
 
 
-         if st.button('Sentiment 0'):
+        if st.button('Sentiment 0'):
                          st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/hashsent0.PNG')
 
-         if st.button('Sentiment -1'):
-                 st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/hashSent-1.PNG')    
-   
+        if st.button('Sentiment -1'):
+                 st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/hashSent-1.PNG')
+
 # Models
     if selection == "Models":
         st.image("https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/Predictivemodel.png",
