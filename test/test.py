@@ -1,19 +1,4 @@
 ### Libraries used in making of the web application
-# !pip install -U streamlit
-# !pip install -U numpy
-# !pip install -U pandas
-# !pip install -U joblib
-# !pip install -U matplotlib
-# !pip install -U wordcloud
-# !pip install -U plotly-express
-# !pip install -U altair gensim
-# !pip install -U imblearn
-# !pip install -U scikit-learn
-# !pip install -U sklearn
-# !pip install -U nltk
-# !pip install -U spacy
-
-
 # Streamlit dependencies
 import streamlit as st
 import joblib, os
@@ -25,13 +10,13 @@ from typing import List, Tuple
 # Inspecting
 import numpy as np
 import pandas as pd
-# from time import time
-# import re
-# import string
-# import os
-# import emoji
-# from pprint import pprint
-# import collections
+from time import time
+import re
+import string
+import os
+import emoji
+from pprint import pprint
+import collections
 
 # visualisation
 import matplotlib.pyplot as plt
@@ -39,21 +24,22 @@ import seaborn as sns
 from wordcloud import WordCloud
 from PIL import Image
 import plotly.express as px
-# import altair as alt
-# from gensim.models import Word2Vec
+import altair as alt
+from gensim.models import Word2Vec
 
 # Balance data
-# from imblearn.over_sampling import SMOTE
-# from sklearn.utils import resample
+from imblearn.over_sampling import SMOTE
+from sklearn.utils import resample
 
 #Natural Language Toolkit
 import nltk
-#nltk.download('punkt')
+nltk.download('punkt')
 from nltk import word_tokenize,sent_tokenize
 from nltk import PorterStemmer
-#from nltk.stem import WordNetLemmatizer
-#from nltk.probability import FreqDist
+from nltk.stem import WordNetLemmatizer
+from nltk.probability import FreqDist
 import spacy
+#spacy.download('en_core_web_sm')
 sp = spacy.load('en_core_web_sm')
 
 ### Loading the data
@@ -1026,10 +1012,21 @@ def main():
         #Show distribution of target variable
         st.info('View Distribution of Sentiment')
         if st.button('Bar Plot'):
-                        st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/TargetVaraible.PNG')
-
+            @st.cache(persist=True,allow_output_mutation=True)
+            def figure1(df):
+                fig = sns.factorplot('sentiment',data = df, kind='count',size=6,aspect = 1.5, palette = 'PuBuGn_d')
+                return fig
+            fig1 = figure1(data)
+            st.markdown("<h1 style='text-align: center; color: black;'>Distribution of Sentiment</h1>", unsafe_allow_html=True)
+            st.pyplot(fig1)
         if st.button('Pie Chart'):
-                        st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/Pie%20Chart.PNG')
+            @st.cache(persist=True,allow_output_mutation=True)
+            def figure2(df):
+                fig = px.pie(df, values='message', names='sentiment',color_discrete_map={'negative Sentiment = -1':'lightcyan','neutral Sentiment = 0':'cyan','positve Sentiment = 1':'royalblue','News Sentiment = 2':'darkblue'})
+                return fig
+            fig2 = figure2(df_pie)
+            st.markdown("<h1 style='text-align: center; color: black;'>Climate Sentiment Pie Chart</h1>", unsafe_allow_html=True)
+            st.plotly_chart(fig2, use_container_width=True)
 
         #markdown to explain the clean data
         st.subheader("**_Clean Tweets_**")
@@ -1077,49 +1074,49 @@ def main():
             st.dataframe(data_clean)
 
         #Preper Word2Vec
-        # @st.cache(persist=True,allow_output_mutation=True)
-        # def token(df):
-        #     df1 = df['clean_tweet'].apply(lambda x: x.split()) #tokenising
-        #     return df1
-        # tokenised_tweet = token(clean_train_df)
+        @st.cache(persist=True,allow_output_mutation=True)
+        def token(df):
+            df1 = df['clean_tweet'].apply(lambda x: x.split()) #tokenising
+            return df1
+        tokenised_tweet = token(clean_train_df)
 
         #create list of words with no repetitions
-        # all_words =[]
-        # for index, rows in clean_train_df.iterrows():
-        #     all_words.append(rows['clean_tweet'].split(' '))
-        # flatlist_all = [item for sublist in all_words for item in sublist]
-        # single_list_of_words = list(set(flatlist_all))
+        all_words =[]
+        for index, rows in clean_train_df.iterrows():
+            all_words.append(rows['clean_tweet'].split(' '))
+        flatlist_all = [item for sublist in all_words for item in sublist]
+        single_list_of_words = list(set(flatlist_all))
 
         #Word2Vec
-        # st.subheader("**_Word2Vec of Clean Tweets_**")
-        # st.markdown('''It will return the probability of other words appearing from the word you typed in''')
-        # st.info("Type in word from tweets that can be observed above")
-        # # Creating a text box for user input
-        # tweet_text_vec = st.text_area("Enter Text","Eg: realdonaldtrump")
+        st.subheader("**_Word2Vec of Clean Tweets_**")
+        st.markdown('''It will return the probability of other words appearing from the word you typed in''')
+        st.info("Type in word from tweets that can be observed above")
+        # Creating a text box for user input
+        tweet_text_vec = st.text_area("Enter Text","Eg: realdonaldtrump")
 
         #Predict similar words
-        # if st.button('Predict Similar Words'):
-        #     if tweet_text_vec in single_list_of_words:
-        #         @st.cache(persist=True)
-        #         def word2vec(text):
-        #             model_w2v = Word2Vec(
-        #                                     tokenised_tweet,
-		# 							        size=200, # desired no. of features/independent variables
-		# 							        window=5, # context window size
-		# 							        min_count=2,
-		# 							        sg = 1, # 1 for skip-gram model
-		# 							        hs = 0,
-		# 							        negative = 10, # for negative sampling
-		# 							        workers= 2, # no.of cores
-		# 							        seed = 34)
-        #             model_w2v.train(tokenised_tweet,total_examples= len(clean_train_df['clean_tweet']), epochs=20)
-        #             vec = model_w2v.wv.most_similar(positive=text)
-        #             return vec
-        #         predict_vec = word2vec(tweet_text_vec)
-        #         for tuple in predict_vec:
-        #             st.success("{}".format(tuple))
-        #         else:
-        #             st.success('Word Not found, please try again')
+        if st.button('Predict Similar Words'):
+            if tweet_text_vec in single_list_of_words:
+                @st.cache(persist=True)
+                def word2vec(text):
+                    model_w2v = Word2Vec(
+                                            tokenised_tweet,
+									        size=200, # desired no. of features/independent variables
+									        window=5, # context window size
+									        min_count=2,
+									        sg = 1, # 1 for skip-gram model
+									        hs = 0,
+									        negative = 10, # for negative sampling
+									        workers= 2, # no.of cores
+									        seed = 34)
+                    model_w2v.train(tokenised_tweet,total_examples= len(clean_train_df['clean_tweet']), epochs=20)
+                    vec = model_w2v.wv.most_similar(positive=text)
+                    return vec
+                predict_vec = word2vec(tweet_text_vec)
+                for tuple in predict_vec:
+                    st.success("{}".format(tuple))
+                else:
+                    st.success('Word Not found, please try again')
 
         #WordCloud Creation
 		#Sentiment of 2
@@ -1137,13 +1134,13 @@ def main():
         st.info('WordClouds')
 
         if st.button("sentiment 2"):
-            st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/WordCloud2.PNG')
+            st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/resources/imgs/WordCloud2.PNG')
         if st.button("sentiment 1"):
-            st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/WordCloud1.PNG')
+            st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/resources/imgs/WordCloud1.PNG')
         if st.button('sentiment 0'):
-            st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/WordCloud0.PNG')
+            st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/resources/imgs/WordCloud0.PNG')
         if st.button('sentiment -1'):
-            st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/WordCloud-1.PNG')
+            st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/resources/imgs/WordCloud-1.PNG')
 
 		#Create your own wordcloud
 
@@ -1178,23 +1175,84 @@ def main():
 					before a relevant keyword or phrase in their tweets.
 					''', unsafe_allow_html=True)
 
+        # function to collect hashtags
+        @st.cache(persist=True,allow_output_mutation=True)
+        def hashtag_extract(x):
+            hashtags = []
+            # Loop over the words in the tweet
+            for i in x:
+                ht = re.findall(r"#(\w+)", i)
+                hashtags.append(ht)
+
+            return hashtags
+
+        # extracting hashtags from  tweets
+        HT_neutral = hashtag_extract(clean_train_df['clean_tweet'][clean_train_df['sentiment'] == 0])
+        HT_pro = hashtag_extract(clean_train_df['clean_tweet'][clean_train_df['sentiment'] == 1])
+        HT_news = hashtag_extract(clean_train_df['clean_tweet'][clean_train_df['sentiment'] == 2])
+        HT_anti = hashtag_extract(clean_train_df['clean_tweet'][clean_train_df['sentiment'] == -1])
+
+        # unnesting list
+        HT_neutral = sum(HT_neutral,[])
+        HT_pro = sum(HT_pro,[])
+        HT_news = sum(HT_news,[])
+        HT_anti = sum(HT_anti,[])
+
         #Plotting Hashtags
         #Info
         st.info('Hashtags')
 
 
         if st.button("Sentiment 2"):
-                        st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/HashSentiment2.PNG')
-
+            @st.cache(persist=True,allow_output_mutation=True)
+            def hashtag1(lst):
+                a = nltk.FreqDist(lst)
+                d = pd.DataFrame({'Hashtag': list(a.keys()),'Count': list(a.values())})
+                # selecting top 5 most frequent hashtags
+                d = d.sort_values(by = 'Count',ascending = False)
+                return d[0:5]
+            hash1 = hashtag1(HT_news)
+            st.markdown("<h1 style='text-align: center; color: black;'> Hashtag for News(2) Sentiment</h1>", unsafe_allow_html=True)
+            sns.barplot(data=hash1, x= "Hashtag", y = "Count")
+            st.pyplot()
         if st.button("Sentiment 1"):
-                        st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/Hashsent1.PNG')
-
+            @st.cache(persist=True,allow_output_mutation=True)
+            def hashtag2(lst):
+                a = nltk.FreqDist(lst)
+                d = pd.DataFrame({'Hashtag': list(a.keys()),'Count': list(a.values())})
+                # selecting top 5 most frequent hashtags
+                d = d.sort_values(by = 'Count',ascending = False)
+                return d[0:5]
+            hash2 = hashtag2(HT_pro)
+            st.markdown("<h1 style='text-align: center; color: black;'> Hashtag for Postive(1) Sentiment</h1>", unsafe_allow_html=True)
+            sns.barplot(data=hash2, x= "Hashtag", y = "Count")
+            st.pyplot()
 
         if st.button('Sentiment 0'):
-                        st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/hashsent0.PNG')
+            @st.cache(persist=True,allow_output_mutation=True)
+            def hashtag3(lst):
+                a = nltk.FreqDist(lst)
+                d = pd.DataFrame({'Hashtag': list(a.keys()),'Count': list(a.values())})
+                # selecting top 5 most frequent hashtags
+                d = d.sort_values(by = 'Count',ascending = False)
+                return d[0:5]
+            hash3 = hashtag3(HT_neutral)
+            st.markdown("<h1 style='text-align: center; color: black;'> Hashtag for Neutral(0) Sentiment</h1>", unsafe_allow_html=True)
+            sns.barplot(data=hash3, x= "Hashtag", y = "Count")
+            st.pyplot()
 
         if st.button('Sentiment -1'):
-                st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/hashSent-1.PNG')
+            @st.cache(persist=True,allow_output_mutation=True)
+            def hashtag4(lst):
+                a = nltk.FreqDist(lst)
+                d = pd.DataFrame({'Hashtag': list(a.keys()),'Count': list(a.values())})
+                # selecting top 5 most frequent hashtags
+                d = d.sort_values(by = 'Count',ascending = False)
+                return d[0:5]
+            hash4 = hashtag4(HT_anti)
+            st.markdown("<h1 style='text-align: center; color: black;'> Hashtag for Negative(-1) Sentiment</h1>", unsafe_allow_html=True)
+            sns.barplot(data=hash4, x= "Hashtag", y = "Count")
+            st.pyplot()
 
 
     # Models
