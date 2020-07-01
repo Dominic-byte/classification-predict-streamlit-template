@@ -49,8 +49,8 @@ from nltk import PorterStemmer
 from nltk.stem import WordNetLemmatizer
 from nltk.probability import FreqDist
 import spacy
-#spacy.download('en_core_web_sm')
-sp = spacy.load('en_core_web_sm')
+spacy.download('en')
+sp = spacy.download('en')
 
 ### Loading the data
 # Vectorizer
@@ -72,7 +72,7 @@ def main():
 	# Creating multiple pages
     st.sidebar.title("Menu")
     options = ["Homepage", "Overview of Climate Change", "Our Mission", "Machine Learning", "Data Exploration", "Models", "Our Products and Services", "About Us"]
-    selection = st.sidebar.selectbox("Please select a page", options)
+    selection = st.sidebar.radio("Please select a page", options)
 
     ## Building our pages
     # Homepage page
