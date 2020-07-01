@@ -39,7 +39,7 @@ from nltk import PorterStemmer
 from nltk.stem import WordNetLemmatizer
 from nltk.probability import FreqDist
 import spacy
-# spacy.download('en')
+# spacy.down<<<<<<load('en')
 sp = spacy.load('en')
 
 ### Loading the data
