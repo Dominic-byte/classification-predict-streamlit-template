@@ -33,14 +33,14 @@ from sklearn.utils import resample
 
 #Natural Language Toolkit
 import nltk
-nltk.download('punkt')
+#nltk.download('punkt')
 from nltk import word_tokenize,sent_tokenize
 from nltk import PorterStemmer
 from nltk.stem import WordNetLemmatizer
 from nltk.probability import FreqDist
 import spacy
-spacy.download('en')
-sp = spacy.download('en')
+#spacy.download('en')
+sp = spacy.load('en')
 
 ### Loading the data
 # Vectorizer
