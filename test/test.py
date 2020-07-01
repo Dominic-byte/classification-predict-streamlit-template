@@ -33,14 +33,14 @@ from sklearn.utils import resample
 
 #Natural Language Toolkit
 import nltk
-nltk.download('punkt')
+#nltk.download('punkt')
 from nltk import word_tokenize,sent_tokenize
 from nltk import PorterStemmer
 from nltk.stem import WordNetLemmatizer
 from nltk.probability import FreqDist
 import spacy
-spacy.download('en')
-sp = spacy.download('en')
+# spacy.download('en')
+sp = spacy.load('en')
 
 ### Loading the data
 # Vectorizer
@@ -1012,21 +1012,10 @@ def main():
         #Show distribution of target variable
         st.info('View Distribution of Sentiment')
         if st.button('Bar Plot'):
-            @st.cache(persist=True,allow_output_mutation=True)
-            def figure1(df):
-                fig = sns.factorplot('sentiment',data = df, kind='count',size=6,aspect = 1.5, palette = 'PuBuGn_d')
-                return fig
-            fig1 = figure1(data)
-            st.markdown("<h1 style='text-align: center; color: black;'>Distribution of Sentiment</h1>", unsafe_allow_html=True)
-            st.pyplot(fig1)
+                        st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/WordCloud-1.PNG')
+
         if st.button('Pie Chart'):
-            @st.cache(persist=True,allow_output_mutation=True)
-            def figure2(df):
-                fig = px.pie(df, values='message', names='sentiment',color_discrete_map={'negative Sentiment = -1':'lightcyan','neutral Sentiment = 0':'cyan','positve Sentiment = 1':'royalblue','News Sentiment = 2':'darkblue'})
-                return fig
-            fig2 = figure2(df_pie)
-            st.markdown("<h1 style='text-align: center; color: black;'>Climate Sentiment Pie Chart</h1>", unsafe_allow_html=True)
-            st.plotly_chart(fig2, use_container_width=True)
+                        st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/WordCloud-1.PNG')
 
         #markdown to explain the clean data
         st.subheader("**_Clean Tweets_**")
@@ -1134,13 +1123,13 @@ def main():
         st.info('WordClouds')
 
         if st.button("sentiment 2"):
-            st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/resources/imgs/WordCloud2.PNG')
+            st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/WordCloud2.PNG')
         if st.button("sentiment 1"):
-            st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/resources/imgs/WordCloud1.PNG')
+            st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/WordCloud1.PNG')
         if st.button('sentiment 0'):
-            st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/resources/imgs/WordCloud0.PNG')
+            st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/WordCloud0.PNG')
         if st.button('sentiment -1'):
-            st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/resources/imgs/WordCloud-1.PNG')
+            st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/WordCloud-1.PNG')
 
 		#Create your own wordcloud
 
@@ -1204,55 +1193,17 @@ def main():
 
 
         if st.button("Sentiment 2"):
-            @st.cache(persist=True,allow_output_mutation=True)
-            def hashtag1(lst):
-                a = nltk.FreqDist(lst)
-                d = pd.DataFrame({'Hashtag': list(a.keys()),'Count': list(a.values())})
-                # selecting top 5 most frequent hashtags
-                d = d.sort_values(by = 'Count',ascending = False)
-                return d[0:5]
-            hash1 = hashtag1(HT_news)
-            st.markdown("<h1 style='text-align: center; color: black;'> Hashtag for News(2) Sentiment</h1>", unsafe_allow_html=True)
-            sns.barplot(data=hash1, x= "Hashtag", y = "Count")
-            st.pyplot()
+                        st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/WordCloud-1.PNG')
+
         if st.button("Sentiment 1"):
-            @st.cache(persist=True,allow_output_mutation=True)
-            def hashtag2(lst):
-                a = nltk.FreqDist(lst)
-                d = pd.DataFrame({'Hashtag': list(a.keys()),'Count': list(a.values())})
-                # selecting top 5 most frequent hashtags
-                d = d.sort_values(by = 'Count',ascending = False)
-                return d[0:5]
-            hash2 = hashtag2(HT_pro)
-            st.markdown("<h1 style='text-align: center; color: black;'> Hashtag for Postive(1) Sentiment</h1>", unsafe_allow_html=True)
-            sns.barplot(data=hash2, x= "Hashtag", y = "Count")
-            st.pyplot()
+                        st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/WordCloud-1.PNG')
+
 
         if st.button('Sentiment 0'):
-            @st.cache(persist=True,allow_output_mutation=True)
-            def hashtag3(lst):
-                a = nltk.FreqDist(lst)
-                d = pd.DataFrame({'Hashtag': list(a.keys()),'Count': list(a.values())})
-                # selecting top 5 most frequent hashtags
-                d = d.sort_values(by = 'Count',ascending = False)
-                return d[0:5]
-            hash3 = hashtag3(HT_neutral)
-            st.markdown("<h1 style='text-align: center; color: black;'> Hashtag for Neutral(0) Sentiment</h1>", unsafe_allow_html=True)
-            sns.barplot(data=hash3, x= "Hashtag", y = "Count")
-            st.pyplot()
+                        st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/WordCloud-1.PNG')
 
         if st.button('Sentiment -1'):
-            @st.cache(persist=True,allow_output_mutation=True)
-            def hashtag4(lst):
-                a = nltk.FreqDist(lst)
-                d = pd.DataFrame({'Hashtag': list(a.keys()),'Count': list(a.values())})
-                # selecting top 5 most frequent hashtags
-                d = d.sort_values(by = 'Count',ascending = False)
-                return d[0:5]
-            hash4 = hashtag4(HT_anti)
-            st.markdown("<h1 style='text-align: center; color: black;'> Hashtag for Negative(-1) Sentiment</h1>", unsafe_allow_html=True)
-            sns.barplot(data=hash4, x= "Hashtag", y = "Count")
-            st.pyplot()
+                st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/WordCloud-1.PNG')
 
 
     # Models
