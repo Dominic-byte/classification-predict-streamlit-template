@@ -11,6 +11,9 @@ from typing import List, Tuple
 import numpy as np
 import pandas as pd
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of e7d7687... Trying to get app running
 from time import time
 import re
 import string
@@ -18,6 +21,7 @@ import os
 import emoji
 from pprint import pprint
 import collections
+<<<<<<< HEAD
 =======
 # from time import time
 # import re
@@ -27,6 +31,8 @@ import collections
 # from pprint import pprint
 # import collections
 >>>>>>> parent of 6c73ace... please
+=======
+>>>>>>> parent of e7d7687... Trying to get app running
 
 # visualisation
 import matplotlib.pyplot as plt
@@ -49,8 +55,13 @@ from nltk import PorterStemmer
 from nltk.stem import WordNetLemmatizer
 from nltk.probability import FreqDist
 import spacy
+<<<<<<< HEAD
 spacy.download('en')
 sp = spacy.download('en')
+=======
+# spacy.down<<<<<<load('en')
+sp = spacy.load('en')
+>>>>>>> parent of e7d7687... Trying to get app running
 
 ### Loading the data
 # Vectorizer
@@ -1022,6 +1033,7 @@ def main():
         #Show distribution of target variable
         st.info('View Distribution of Sentiment')
         if st.button('Bar Plot'):
+<<<<<<< HEAD
             @st.cache(persist=True,allow_output_mutation=True)
             def figure1(df):
                 fig = sns.factorplot('sentiment',data = df, kind='count',size=6,aspect = 1.5, palette = 'PuBuGn_d')
@@ -1037,6 +1049,12 @@ def main():
             fig2 = figure2(df_pie)
             st.markdown("<h1 style='text-align: center; color: black;'>Climate Sentiment Pie Chart</h1>", unsafe_allow_html=True)
             st.plotly_chart(fig2, use_container_width=True)
+=======
+                        st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/WordCloud-1.PNG')
+
+        if st.button('Pie Chart'):
+                        st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/WordCloud-1.PNG')
+>>>>>>> parent of e7d7687... Trying to get app running
 
         #markdown to explain the clean data
         st.subheader("**_Clean Tweets_**")
@@ -1214,6 +1232,7 @@ def main():
 
 
         if st.button("Sentiment 2"):
+<<<<<<< HEAD
             @st.cache(persist=True,allow_output_mutation=True)
             def hashtag1(lst):
                 a = nltk.FreqDist(lst)
@@ -1263,6 +1282,19 @@ def main():
             st.markdown("<h1 style='text-align: center; color: black;'> Hashtag for Negative(-1) Sentiment</h1>", unsafe_allow_html=True)
             sns.barplot(data=hash4, x= "Hashtag", y = "Count")
             st.pyplot()
+=======
+                        st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/WordCloud-1.PNG')
+
+        if st.button("Sentiment 1"):
+                        st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/WordCloud-1.PNG')
+
+
+        if st.button('Sentiment 0'):
+                        st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/WordCloud-1.PNG')
+
+        if st.button('Sentiment -1'):
+                st.image('https://raw.githubusercontent.com/Dominic-byte/classification-predict-streamlit-template/master/test/resources/WordCloud-1.PNG')
+>>>>>>> parent of e7d7687... Trying to get app running
 
 
     # Models
